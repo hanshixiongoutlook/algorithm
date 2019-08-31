@@ -3,6 +3,10 @@ package com.hans.projects.test.algorithm.utils;
 public class PrintUtils {
 
 
+    /**
+     * 将数组按照树形结构打印
+     * @param arr
+     */
     public static void printTree(int[] arr) {
         int d = treeDepth(arr, 0);
         int count = 2;

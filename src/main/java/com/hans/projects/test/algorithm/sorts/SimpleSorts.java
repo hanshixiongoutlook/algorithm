@@ -1,7 +1,7 @@
 package com.hans.projects.test.algorithm.sorts;
 
 /**
- * 排序算法合集
+ * 简单排序算法合集：冒泡排序、选择排序、快速排序
  */
 public class SimpleSorts {
 
