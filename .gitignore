@@ -1,0 +1,14 @@
+.factorypath
+.settings/
+.classpath
+.project
+
+target/
+pmis-log/
+
+*.iml
+*.ipr
+*.iws
+*.idea
+/.metadata/
+/RemoteSystemsTempFiles/
