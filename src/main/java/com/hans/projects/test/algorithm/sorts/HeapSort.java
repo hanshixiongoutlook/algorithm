@@ -1,6 +1,7 @@
 package com.hans.projects.test.algorithm.sorts;
 
 import com.hans.projects.test.algorithm.utils.PrintUtils;
+import com.hans.projects.test.algorithm.utils.SortUtils;
 
 /**
  * 选择类
@@ -30,10 +31,9 @@ public abstract class  HeapSort {
         buildHeap(arr);
         System.out.println("初始堆-构建完成：------");
         PrintUtils.printTree(arr);
-        int len = arr.length - 1;
         System.out.println("排序过程：------");
-        for (int i=len; i>0; i--) {
-            swap(arr, 0, i);
+        for (int i=arr.length - 1; i>0; i--) {
+            SortUtils.swap(arr, 0, i);
             heap(arr, 0, i);
         }
     }
@@ -57,12 +57,6 @@ public abstract class  HeapSort {
      */
     abstract void heap(int[] arr, int root, int high);
 
-    protected final void swap(int[] arr, int i, int j) {
-        int tmp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = tmp;
-    }
-
 }
 
 /**
@@ -71,7 +65,6 @@ public abstract class  HeapSort {
 class MaxHeapSort extends HeapSort {
     @Override
     public void heap(int[] arr, int root, int high) {
-        if (root >= arr.length) return;
         int left = 2*root+1;
         int right = 2*root+2;
         int maxEle = root;
@@ -82,7 +75,7 @@ class MaxHeapSort extends HeapSort {
             maxEle = right;
         }
         if (maxEle!=root) {
-            swap(arr, maxEle, root);
+            SortUtils.swap(arr, maxEle, root);
             heap(arr, maxEle,high);
         }
     }
@@ -108,7 +101,7 @@ class MinHeapSort extends HeapSort {
             min = right;
         }
         if ( min !=root ) {
-            swap(arr, root, min);
+            SortUtils.swap(arr, root, min);
             heap(arr, min, high);
         }
     }

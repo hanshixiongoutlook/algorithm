@@ -1,5 +1,8 @@
 package com.hans.projects.test.algorithm.sorts;
 
+import com.alibaba.fastjson.JSONObject;
+import com.hans.projects.test.algorithm.utils.SortUtils;
+
 /**
  * 简单排序算法合集：冒泡排序、选择排序、快速排序
  */
@@ -21,9 +24,8 @@ public class SimpleSorts {
         for (int i = 0; i< arr.length; i++) {
             for (int j = 0; j< arr.length-1-i; j++) {
                 if (arr[j]> arr[j+1]) {
-                    int tmp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = tmp;
+                    SortUtils.swap(arr,j,j+1);
+                    System.out.println("[Bubble Sort] " + JSONObject.toJSONString(arr));
                 }
             }
         }
@@ -48,10 +50,11 @@ public class SimpleSorts {
      * 1,2,3 左|右 6,7,4,5
 
      * @param arr
-     * @param low
-     * @param high
      */
-    public static void quickSort(int[] arr, int low, int high) {
+    public static void quickSort(int[] arr) {
+        quick(arr,0,arr.length-1);
+    }
+    public static void quick(int[] arr, int low, int high) {
         if (low >= high) return;
         int l = low;
         int h = high;
@@ -66,8 +69,9 @@ public class SimpleSorts {
 
         // 这里角标用h或l都可以，此时h==l
         arr[h] = pivot;
-        quickSort(arr, low, h-1);
-        quickSort(arr, h+1, high);
+        System.out.println("[quick sort] low="+low + "; high=" +high+"; pivot = " + pivot + JSONObject.toJSONString(arr));
+        quick(arr, low, h-1);
+        quick(arr, h+1, high);
     }
 
 
@@ -88,9 +92,8 @@ public class SimpleSorts {
                     min=j;
                 }
             }
-            int tmp = arr[i];
-            arr[i] = arr[min];
-            arr[min] = tmp;
+            SortUtils.swap(arr,min,i);
+            System.out.println("[Select Sort] min_index=" + min + JSONObject.toJSONString(arr));
         }
     }
 

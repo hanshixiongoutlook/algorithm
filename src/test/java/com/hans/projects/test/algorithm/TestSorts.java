@@ -2,6 +2,7 @@ package com.hans.projects.test.algorithm;
 
 import com.alibaba.fastjson.JSONObject;
 import com.hans.projects.test.algorithm.sorts.HeapSort;
+import com.hans.projects.test.algorithm.sorts.MergeSort;
 import com.hans.projects.test.algorithm.sorts.SimpleSorts;
 import org.junit.After;
 import org.junit.Before;
@@ -19,7 +20,7 @@ public class TestSorts {
     @Test
     @DisplayName("归并排序")
     public void testMergeSort() {
-//        arr = MergeSort.mergeSort(arr);
+        MergeSort.mergeSort(arr);
     }
     @Test
     @DisplayName("堆排序：大顶堆")
@@ -35,7 +36,7 @@ public class TestSorts {
     @Test
     @DisplayName("快速排序")
     public void testQuickSort() {
-        SimpleSorts.quickSort(arr, 0, arr.length-1);
+        SimpleSorts.quickSort(arr);
     }
     @Test
     @DisplayName("冒泡排序")
@@ -44,7 +45,7 @@ public class TestSorts {
     }
 
     @Test
-    @DisplayName("冒泡排序")
+    @DisplayName("选择排序")
     public void testSelectSort() {
         SimpleSorts.selectSort(arr);
     }
@@ -55,9 +56,8 @@ public class TestSorts {
 
     @Before
     public void before() throws NoSuchMethodException {
-        String discription = this.getClass().getDeclaredMethod(name.getMethodName(),null).getAnnotation(DisplayName.class).value();
-        System.out.println("["+name.getMethodName()+"] "+discription);
-        System.out.println("["+name.getMethodName()+"] 原始数组 : "+ JSONObject.toJSONString(arr));
+        String discription = this.getClass().getDeclaredMethod(name.getMethodName()).getAnnotation(DisplayName.class).value();
+        System.out.println("["+name.getMethodName()+"] "+discription + " : " + JSONObject.toJSONString(arr));
     }
     @After
     public void after() {
