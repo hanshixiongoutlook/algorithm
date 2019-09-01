@@ -1,7 +1,7 @@
-package com.hans.algorithm.sorts;
+package hans.algorithm.sorts;
 
-import com.hans.algorithm.utils.PrintUtils;
-import com.hans.algorithm.utils.SortUtils;
+import hans.algorithm.utils.PrintUtils;
+import hans.algorithm.utils.SortUtils;
 
 /**
  * 选择类

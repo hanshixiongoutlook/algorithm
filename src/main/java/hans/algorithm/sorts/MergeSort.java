@@ -1,4 +1,4 @@
-package com.hans.algorithm.sorts;
+package hans.algorithm.sorts;
 
 import com.alibaba.fastjson.JSONObject;
 

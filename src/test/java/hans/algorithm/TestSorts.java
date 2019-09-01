@@ -1,9 +1,9 @@
-package com.hans.algorithm;
+package hans.algorithm;
 
 import com.alibaba.fastjson.JSONObject;
-import com.hans.algorithm.sorts.MergeSort;
-import com.hans.algorithm.sorts.SimpleSorts;
-import com.hans.algorithm.sorts.HeapSort;
+import hans.algorithm.sorts.MergeSort;
+import hans.algorithm.sorts.SimpleSorts;
+import hans.algorithm.sorts.HeapSort;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;

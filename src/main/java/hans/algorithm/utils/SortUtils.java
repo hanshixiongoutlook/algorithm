@@ -1,4 +1,4 @@
-package com.hans.algorithm.utils;
+package hans.algorithm.utils;
 
 public class SortUtils {
 

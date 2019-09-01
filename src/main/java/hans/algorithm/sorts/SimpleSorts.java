@@ -1,7 +1,7 @@
-package com.hans.algorithm.sorts;
+package hans.algorithm.sorts;
 
 import com.alibaba.fastjson.JSONObject;
-import com.hans.algorithm.utils.SortUtils;
+import hans.algorithm.utils.SortUtils;
 
 /**
  * 简单排序算法合集：冒泡排序、选择排序、快速排序
