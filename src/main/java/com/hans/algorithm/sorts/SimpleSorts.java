@@ -1,7 +1,7 @@
-package com.hans.projects.test.algorithm.sorts;
+package com.hans.algorithm.sorts;
 
 import com.alibaba.fastjson.JSONObject;
-import com.hans.projects.test.algorithm.utils.SortUtils;
+import com.hans.algorithm.utils.SortUtils;
 
 /**
  * 简单排序算法合集：冒泡排序、选择排序、快速排序
@@ -94,6 +94,22 @@ public class SimpleSorts {
             }
             SortUtils.swap(arr,min,i);
             System.out.println("[Select Sort] min_index=" + min + JSONObject.toJSONString(arr));
+        }
+    }
+
+
+    public static void insertSort(int[] arr) {
+        for (int i=1; i<arr.length; i++) {
+            if (arr[i]<arr[i-1]) {
+                int tmp = arr[i];
+                arr[i] = arr[i-1];
+                int j = i-2;
+                for (;j>=0&&arr[j]>tmp;j--) {
+                    arr[j+1] = arr[j];
+                }
+                arr[j+1] = tmp;
+            }
+            System.out.println("[insert Sort] "+JSONObject.toJSONString(arr));
         }
     }
 

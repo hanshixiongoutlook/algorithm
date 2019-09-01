@@ -1,6 +1,6 @@
-package com.hans.projects.test.algorithm;
+package com.hans.algorithm;
 
-import com.hans.projects.test.algorithm.utils.SortUtils;
+import com.hans.algorithm.utils.SortUtils;
 
 public class Practices {
 

@@ -1,9 +1,9 @@
-package com.hans.projects.test.algorithm;
+package com.hans.algorithm;
 
 import com.alibaba.fastjson.JSONObject;
-import com.hans.projects.test.algorithm.sorts.HeapSort;
-import com.hans.projects.test.algorithm.sorts.MergeSort;
-import com.hans.projects.test.algorithm.sorts.SimpleSorts;
+import com.hans.algorithm.sorts.MergeSort;
+import com.hans.algorithm.sorts.SimpleSorts;
+import com.hans.algorithm.sorts.HeapSort;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -16,7 +16,12 @@ import org.junit.rules.TestName;
  */
 public class TestSorts {
     int[] arr = new int[]{6,1,8,4,9,2,5,3,7};
-
+    @Test
+    @DisplayName("插入排序")
+    public void test() {
+        int[] arr = new int[]{6,1,8,4,9,2,5,3,7};
+        SimpleSorts.insertSort(arr);
+    }
     @Test
     @DisplayName("归并排序")
     public void testMergeSort() {

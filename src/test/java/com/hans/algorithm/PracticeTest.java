@@ -1,4 +1,4 @@
-package com.hans.projects.test.algorithm;
+package com.hans.algorithm;
 
 import com.alibaba.fastjson.JSONObject;
 import org.junit.Test;
