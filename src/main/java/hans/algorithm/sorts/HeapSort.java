@@ -93,11 +93,11 @@ class MinHeapSort extends HeapSort {
         int right = 2*root+2;
         int min = root;
         // 和左孩子比较并交换
-        if (left < high && arr[root]>arr[left]) {
+        if (left<high && arr[root]>arr[left]) {
             min = left;
         }
         // 和右孩子比较并交换
-        if (right < high && arr[min]>arr[right] ) {
+        if (right<high && arr[min]>arr[right] ) {
             min = right;
         }
         if ( min !=root ) {

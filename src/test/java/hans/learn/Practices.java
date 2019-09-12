@@ -1,4 +1,4 @@
-package hans.algorithm;
+package hans.learn;
 
 import hans.algorithm.utils.SortUtils;
 

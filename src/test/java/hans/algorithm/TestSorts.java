@@ -1,9 +1,9 @@
 package hans.algorithm;
 
 import com.alibaba.fastjson.JSONObject;
-import hans.algorithm.sorts.MergeSort;
-import hans.algorithm.sorts.SimpleSorts;
 import hans.algorithm.sorts.HeapSort;
+import hans.algorithm.sorts.ShellSort;
+import hans.algorithm.sorts.SimpleSorts;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -13,19 +13,35 @@ import org.junit.rules.TestName;
 
 /**
  * 测试各种排序
+ *
+ * 排序算法合集-共9种排序
+ * 插入类排序算法： 直接插入排序、折半插入排序、*希尔排序
+ * 交换类排序算法： 冒泡排序、快速排序
+ * 选择类排序算法： 简单选择排序、*树形选择排序、堆排序
+ * 分治法排序算法： 归并排序
  */
 public class TestSorts {
-    int[] arr = new int[]{6,1,8,4,9,2,5,3,7};
+    int[] arr = new int[]{1,6,8,4,9,2,5,3,7};
+
+    @Test
+    @DisplayName("希尔排序")
+    public void testShellSort() {
+        ShellSort.shellSort(arr);
+    }
+    @Test
+    @DisplayName("折半插入排序")
+    public void testBinInsertSort() {
+        SimpleSorts.binInsertSort(arr);
+    }
     @Test
     @DisplayName("插入排序")
-    public void test() {
-        int[] arr = new int[]{6,1,8,4,9,2,5,3,7};
+    public void testInsertSort() {
         SimpleSorts.insertSort(arr);
     }
     @Test
     @DisplayName("归并排序")
     public void testMergeSort() {
-        MergeSort.mergeSort(arr);
+        SimpleSorts.mergeSort(arr);
     }
     @Test
     @DisplayName("堆排序：大顶堆")
