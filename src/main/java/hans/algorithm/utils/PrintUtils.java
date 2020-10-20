@@ -14,7 +14,7 @@ public class PrintUtils {
         int index = 1;
         for (int i=0; i<d-1; i++) {
             for (int j=0; j<count&&index<arr.length; j++) {
-                System.out.print(arr[index]+" ");
+                Logger.log(arr[index]+" ");
                 index++;
             }
             count*=2;

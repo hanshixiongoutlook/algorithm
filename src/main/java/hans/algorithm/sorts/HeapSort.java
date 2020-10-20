@@ -1,5 +1,6 @@
 package hans.algorithm.sorts;
 
+import hans.algorithm.utils.Logger;
 import hans.algorithm.utils.PrintUtils;
 import hans.algorithm.utils.SortUtils;
 
@@ -27,11 +28,11 @@ public abstract class  HeapSort {
      * @param arr
      */
     public final void sort(int[] arr) {
-        System.out.println("建堆过程：------");
+        Logger.log("建堆过程：------");
         buildHeap(arr);
-        System.out.println("初始堆-构建完成：------");
+        Logger.log("初始堆-构建完成：------");
         PrintUtils.printTree(arr);
-        System.out.println("排序过程：------");
+        Logger.log("排序过程：------");
         for (int i=arr.length - 1; i>0; i--) {
             SortUtils.swap(arr, 0, i);
             heap(arr, 0, i);
@@ -87,7 +88,7 @@ class MaxHeapSort extends HeapSort {
 class MinHeapSort extends HeapSort {
     @Override
     public void heap(int[] arr, int root, int high) {
-        System.out.println("root = "+root+"; high = "+high+"：------");
+        Logger.log("root = {}; high = {}", root, high);
         PrintUtils.printTree(arr);
         int left = 2*root+1;
         int right = 2*root+2;

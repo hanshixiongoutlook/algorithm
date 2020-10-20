@@ -1,6 +1,7 @@
 package hans.algorithm.sorts;
 
 import com.alibaba.fastjson.JSONObject;
+import hans.algorithm.utils.Logger;
 import hans.algorithm.utils.SortUtils;
 
 import java.util.concurrent.BlockingDeque;
@@ -251,7 +252,8 @@ public class SimpleSorts {
         for (int i=0; i<=high-low; i++) {
             arr[low+i] = tmp[i];
         }
-        System.out.println("[merge] "+JSONObject.toJSONString(arr) + leftAndRight);
+
+        Logger.log("[merge] {}{}",JSONObject.toJSONString(arr), leftAndRight);
     }
 
 
