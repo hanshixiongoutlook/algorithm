@@ -104,10 +104,11 @@ public class SimpleSorts {
      */
     public static void bubbleSort(int[] arr) {
         for (int i = 0; i< arr.length; i++) {
+            Logger.log("The {}th trip, put the {}th max to index {}", (i+1), (i+1), (arr.length-i));
             for (int j = 0; j< arr.length-1-i; j++) {
                 if (arr[j]> arr[j+1]) {
                     SortUtils.swap(arr,j,j+1);
-                    System.out.println("[Bubble Sort] " + JSONObject.toJSONString(arr));
+                    Logger.log2Json("{}", arr);
                 }
             }
         }
@@ -119,7 +120,7 @@ public class SimpleSorts {
      * 思路：
      * 3,2,6,1,7,4,5
      * 先找基准值pivot，一般使用最低位的值，如第一趟采用的是index=0位上的值
-     * 第一趟，以pivot为基准，>pivot的值放在右边；<pivot的值放在左边，再pivot放在中间位置上
+     * 第一趟，以pivot为基准，>pivot的值放在右边；<pivot的值放在左边，再把pivot放在中间位置上
      * 1,2,[3],6,7,4,5
      * --这里，如果是单数个则放在中间位置，如果是双数个，则放在临近的一侧
      * 第一趟结束，递归开始
@@ -147,12 +148,12 @@ public class SimpleSorts {
             arr[l] = arr[h];
             while (l<h && arr[l]<pivot) l++;
             arr[h] = arr[l];
-            System.out.println("[quick sort] low="+low + "; high=" +high+"; pivot = " + pivot + JSONObject.toJSONString(arr));
+            Logger.log2Json("   low={}, high={}, pivot={} | after exchange is {}", low, high, pivot, arr);
         }
 
         // 这里角标用h或l都可以，此时h==l
         arr[h] = pivot;
-        System.out.println("[quick sort] low="+low + "; high=" +high+"; pivot = " + pivot + JSONObject.toJSONString(arr));
+        Logger.log2Json("Recursive : low={}, high={}, pivot={} | after exchange is {}", low, high, pivot, arr);
         quick(arr, low, h-1);
         quick(arr, h+1, high);
     }
@@ -176,7 +177,9 @@ public class SimpleSorts {
                 }
             }
             SortUtils.swap(arr,min,i);
-            System.out.println("[Select Sort] min_index=" + min + JSONObject.toJSONString(arr));
+            Logger.log("The {}th trip, find min-index={} min-value={}", (i+1), min, arr[min]);
+            Logger.log("    Put min-value({}) to index({}), and after-sort={}", arr[min], i, JSONObject.toJSONString(arr));
+
         }
     }
 

@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import hans.algorithm.sorts.HeapSort;
 import hans.algorithm.sorts.ShellSort;
 import hans.algorithm.sorts.SimpleSorts;
+import hans.algorithm.utils.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -55,18 +56,18 @@ public class TestSorts {
     }
 
     @Test
-    @DisplayName("快速排序")
+    @DisplayName("Quick sort(快速排序)")
     public void testQuickSort() {
         SimpleSorts.quickSort(arr);
     }
     @Test
-    @DisplayName("冒泡排序")
+    @DisplayName("Bubble sort(冒泡排序)")
     public void testBubbleSort() {
         SimpleSorts.bubbleSort(arr);
     }
 
     @Test
-    @DisplayName("选择排序")
+    @DisplayName("Select sort(选择排序)")
     public void testSelectSort() {
         SimpleSorts.selectSort(arr);
     }
@@ -78,10 +79,11 @@ public class TestSorts {
     @Before
     public void before() throws NoSuchMethodException {
         String discription = this.getClass().getDeclaredMethod(name.getMethodName()).getAnnotation(DisplayName.class).value();
-        System.out.println("["+name.getMethodName()+"] "+discription + " : " + JSONObject.toJSONString(arr));
+        Logger.log2Json("{} start : {}", discription, JSONObject.toJSONString(arr));
     }
     @After
-    public void after() {
-        System.out.println("["+name.getMethodName()+"] 排序完成 : "+ JSONObject.toJSONString(arr));
+    public void after() throws NoSuchMethodException {
+        String discription = this.getClass().getDeclaredMethod(name.getMethodName()).getAnnotation(DisplayName.class).value();
+        Logger.log2Json("{} completed : {}", discription, JSONObject.toJSONString(arr));
     }
 }
