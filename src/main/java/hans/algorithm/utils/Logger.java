@@ -30,7 +30,13 @@ public class Logger {
 		}
 		System.out.println(message);
 	}
-
+	public static void log(Object message) {
+		if (message==null) {
+			System.out.println("null");
+			return;
+		}
+		System.out.println(message);
+	}
 	/**
 	 * Print log and convert param to json.
 	 * @param message
