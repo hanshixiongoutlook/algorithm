@@ -2,14 +2,14 @@ package hans.algorithm.utils;
 
 import com.alibaba.fastjson.JSONObject;
 
-import javax.print.attribute.Attribute;
-
 /**
- * 打印日志
+ * Logger Util
+ * @author hanshixiong
  */
 public class Logger {
 	/**
-	 * print log
+	 * print log with placeholder
+	 *
 	 * @param message
 	 * 		打印内容，支持{}作为占位符
 	 * @param params
@@ -30,6 +30,11 @@ public class Logger {
 		}
 		System.out.println(message);
 	}
+
+	/**
+	 * print message
+	 * @param message
+	 */
 	public static void log(Object message) {
 		if (message==null) {
 			System.out.println("null");
@@ -37,6 +42,7 @@ public class Logger {
 		}
 		System.out.println(message);
 	}
+
 	/**
 	 * Print log and convert param to json.
 	 * @param message
