@@ -1,9 +1,12 @@
 package hans.algorithm.traversal;
 
+import com.sun.jmx.remote.internal.ArrayQueue;
 import hans.algorithm.struct.BinaryTreeNode;
 import org.junit.Test;
 
+import java.util.Queue;
 import java.util.Stack;
+import java.util.concurrent.ConcurrentLinkedDeque;
 
 public class BinaryTreeTraversal {
 
@@ -22,6 +25,9 @@ public class BinaryTreeTraversal {
 
         System.out.print("preorder traversal  : ");
         preOrder(root);
+        System.out.print("\r\npreorder traversal  : ");
+        preOrder(arr, 0);
+
         System.out.print("\r\nnon-recursive preorder traversal : ");
         nonRecursivePre(root);
 
@@ -34,6 +40,9 @@ public class BinaryTreeTraversal {
         postOrder(root);
         System.out.print("\r\nnon-recursive postorder traversal : ");
         nonRecursivePost(root);
+
+        System.out.print("\r\nnon-recursive level order traversal : ");
+        levelOrder(root);
     }
 
 
@@ -51,6 +60,20 @@ public class BinaryTreeTraversal {
         System.out.print(root.getValue()+" ");
         preOrder(root.getLeft());
         preOrder(root.getRight());
+    }
+
+    /**
+     * example of array implement
+     * @param tree
+     * @param rootIndex
+     */
+    public void preOrder(Integer[] tree, int rootIndex) {
+        if (rootIndex>=tree.length) {
+            return;
+        }
+        System.out.print(tree[rootIndex]+" ");
+        preOrder(tree, rootIndex*2+1);
+        preOrder(tree, rootIndex*2+2);
     }
     public void inOrder(BinaryTreeNode root) {
         if (root==null) {
@@ -145,5 +168,19 @@ public class BinaryTreeTraversal {
     /**
      * Breadth First Search -> BFS
      */
+    public void levelOrder(BinaryTreeNode<Integer> root) {
+        Queue<BinaryTreeNode<Integer>> queue = new ConcurrentLinkedDeque<>();
+        queue.add(root);
+        while(!queue.isEmpty()) {
+            BinaryTreeNode<Integer> cur = queue.remove();
+            System.out.print(cur.getValue()+" ");
+            if (cur.getLeft()!=null) {
+                queue.add(cur.getLeft());
+            }
+            if (cur.getRight()!=null) {
+                queue.add(cur.getRight());
+            }
+        }
+    }
 
 }
