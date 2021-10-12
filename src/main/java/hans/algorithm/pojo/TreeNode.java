@@ -41,7 +41,7 @@ public class TreeNode {
      * @param arr
      * @return
      */
-    public static TreeNode buildTree(Integer[] arr) {
+    public static TreeNode buildTree(int[] arr) {
         if (arr==null||arr.length==0) {
             return null;
         }
@@ -52,12 +52,12 @@ public class TreeNode {
             TreeNode curRoot = stack.pop();
             int leftIndex = curRoot.index*2+1;
             int rightIndex = curRoot.index*2+2;
-            if (leftIndex<arr.length&&arr[leftIndex]!=null) {
+            if (leftIndex<arr.length) {
                 TreeNode left = new TreeNode(arr[leftIndex],null,null, leftIndex);
                 stack.push(left);
                 curRoot.left = left;
             }
-            if (rightIndex< arr.length&&arr[rightIndex]!=null) {
+            if (rightIndex< arr.length) {
                 TreeNode right = new TreeNode(arr[rightIndex],null,null, rightIndex);
                 stack.push(right);
                 curRoot.right = right;

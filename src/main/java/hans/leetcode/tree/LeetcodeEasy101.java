@@ -3,29 +3,34 @@ package hans.leetcode.tree;
 import hans.algorithm.pojo.TreeNode;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
  */
-public class LeetcodeEasy100 {
+public class LeetcodeEasy101 {
     @Test
     public void test() {
-        TreeNode tree1 = TreeNode.buildTree(new int[]{1, 2, 3});
-        TreeNode tree2 = TreeNode.buildTree(new int[]{1, 2, 4});
-        boolean treeNode = isSameTree(tree1, tree2);
+        TreeNode tree1 = TreeNode.buildTree(new int[]{1,2,2,3,4,4,3});
+        boolean treeNode = isSymmetric(tree1);
 
         System.out.println(treeNode);
     }
-    public boolean isSameTree(TreeNode p, TreeNode q) {
-        if (p==null&&p==q) return true;
-        if ((p==null||q==null)&&p!=q) {
+    public boolean isSymmetric(TreeNode root) {
+        if (root==null) {
+            return true;
+        }
+        return isSymmetricChild(root.left, root.right);
+    }
+
+    private boolean isSymmetricChild(TreeNode left, TreeNode right) {
+        if (left==null&&left==right) {
+            return true;
+        }
+        if ((left==null||right==null)&&left!=right) {
             return false;
         }
-        if (p.val!=q.val) {
+        if (left.val!=right.val) {
             return false;
         }
-        return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+        return isSymmetricChild(left.left, right.right)&&isSymmetricChild(left.right, right.left);
     }
 }

@@ -14,7 +14,7 @@ public class LeetcodeEasy257 {
 
     @Test
     public void test() {
-        TreeNode treeNode = TreeNode.buildTree(new Integer[]{1,2,3,null,5});
+        TreeNode treeNode = TreeNode.buildTree(new int[]{1,2,3,Integer.MIN_VALUE,5});
         System.out.println(this.binaryTreePaths(treeNode));
     }
 

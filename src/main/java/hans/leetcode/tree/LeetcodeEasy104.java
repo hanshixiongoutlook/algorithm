@@ -6,31 +6,22 @@ import org.junit.Test;
 /**
  * https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
  */
-public class LeetcodeEasy101 {
+public class LeetcodeEasy104 {
     @Test
     public void test() {
         TreeNode tree1 = TreeNode.buildTree(new int[]{1,2,2,3,4,4,3});
-        boolean treeNode = isSymmetric(tree1);
+        int treeNode = maxDepth(tree1);
 
         System.out.println(treeNode);
     }
-    public boolean isSymmetric(TreeNode root) {
-        if (root==null) {
-            return true;
-        }
-        return isSymmetricChild(root.left, root.right);
+    public int maxDepth(TreeNode root) {
+        return maxDepth(root, 0);
     }
 
-    private boolean isSymmetricChild(TreeNode left, TreeNode right) {
-        if (left==null&&left==right) {
-            return true;
+    public int maxDepth(TreeNode root, int depth) {
+        if (root==null) {
+            return depth;
         }
-        if ((left==null||right==null)&&left!=right) {
-            return false;
-        }
-        if (left.val!=right.val) {
-            return false;
-        }
-        return isSymmetricChild(left.left, right.right)&&isSymmetricChild(left.right, right.left);
+        return Math.max(maxDepth(root.left, depth+1),maxDepth(root.right, depth+1));
     }
 }

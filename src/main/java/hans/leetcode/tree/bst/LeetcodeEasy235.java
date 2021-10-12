@@ -10,7 +10,7 @@ public class LeetcodeEasy235 {
 
     @Test
     public void test() {
-        Integer[] arr = new Integer[]{3,1,4,null,2};
+        int[] arr = new int[]{3,1,4,Integer.MIN_VALUE,2};
         TreeNode integerTreeNode = TreeNode.buildTree(arr);
         TreeNode treeNode = this.lowestCommonAncestor(integerTreeNode, new TreeNode(2, null, null,0), new TreeNode(3, null, null,0));
         System.out.println(treeNode.val);
