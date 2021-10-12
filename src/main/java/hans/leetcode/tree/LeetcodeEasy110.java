@@ -7,7 +7,7 @@ import org.junit.Test;
 /**
  * https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
  */
-public class LeetcodeEasy108 {
+public class LeetcodeEasy110 {
 
     @Test
     public void test() {
