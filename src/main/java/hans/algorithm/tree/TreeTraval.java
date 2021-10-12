@@ -36,7 +36,7 @@ public class TreeTraval {
         if (root==null) {
             return;
         }
-        System.out.print(root.value+" ");
+        System.out.print(root.val +" ");
         preOrder(root.left);
         preOrder(root.right);
     }
@@ -48,7 +48,7 @@ public class TreeTraval {
         Stack<TreeNode> stack = new Stack();
         while (true) {
             while (root!=null) {
-                System.out.print(root.value+" ");
+                System.out.print(root.val +" ");
                 stack.push(root);
                 root = root.left;
             }
@@ -72,7 +72,7 @@ public class TreeTraval {
             return;
         }
         preOrder(root.left);
-        System.out.print(root.value+" ");
+        System.out.print(root.val +" ");
         preOrder(root.right);
     }
 
@@ -90,7 +90,7 @@ public class TreeTraval {
                 break;
             }
             root = stack.pop();
-            System.out.print(root.value+" ");
+            System.out.print(root.val +" ");
             root = root.right;
         }
     }
@@ -108,7 +108,7 @@ public class TreeTraval {
         }
         preOrder(root.left);
         preOrder(root.right);
-        System.out.print(root.value+" ");
+        System.out.print(root.val +" ");
     }
     public void postOrder2(TreeNode root) {
         if (root==null) {
@@ -127,7 +127,7 @@ public class TreeTraval {
             root = root.right;
             if (root!=null) {
 
-                System.out.print(root.value+" ");
+                System.out.print(root.val +" ");
             }
         }
     }
