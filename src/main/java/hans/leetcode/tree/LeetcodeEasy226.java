@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * https://leetcode-cn.com/problems/binary-tree-postorder-traversal/submissions/
+ * https://leetcode-cn.com/problems/invert-binary-tree/
  */
 public class LeetcodeEasy226 {
 

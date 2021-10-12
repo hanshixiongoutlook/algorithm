@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
+ * https://leetcode-cn.com/problems/same-tree/
  */
 public class LeetcodeEasy100 {
     @Test

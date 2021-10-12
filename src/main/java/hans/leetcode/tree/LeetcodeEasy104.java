@@ -4,7 +4,7 @@ import hans.algorithm.pojo.TreeNode;
 import org.junit.Test;
 
 /**
- * https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
+ * https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/
  */
 public class LeetcodeEasy104 {
     @Test

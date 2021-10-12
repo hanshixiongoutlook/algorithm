@@ -4,7 +4,7 @@ import hans.algorithm.pojo.TreeNode;
 import org.junit.Test;
 
 /**
- * https://leetcode-cn.com/problems/binary-tree-paths/
+ * https://leetcode-cn.com/problems/sum-of-left-leaves/
  */
 public class LeetcodeEasy404 {
 

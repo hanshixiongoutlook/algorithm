@@ -5,35 +5,34 @@ import hans.algorithm.pojo.TreeNode;
 import org.junit.Test;
 
 /**
- * https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
+ * https://leetcode-cn.com/problems/balanced-binary-tree/
  */
 public class LeetcodeEasy110 {
 
     @Test
     public void test() {
-        TreeNode treeNode = sortedArrayToBST(new int[]{-10,-3,0,5,9});
-
-        System.out.println(treeNode);
+        TreeNode treeNode = TreeNode.buildTree(new Integer[]{1,2,2,3,3,null,null,4,4});
+//
+        System.out.println(this.isBalanced(treeNode));
     }
-    public TreeNode sortedArrayToBST(int[] nums) {
-        if (nums.length==0) {
-            return null;
+    public boolean isBalanced(TreeNode root) {
+        if (root==null) {
+            return true;
         }
-        if (nums.length==1) {
-            return new TreeNode(nums[0]);
+        int leftL = this.depth(root.left, 0);
+        int rightL = this.depth(root.right, 0);
+        if (Math.abs(leftL-rightL)>1) {
+            return false;
         }
-        return buildTree(nums, 0, nums.length-1);
+        boolean left = isBalanced(root.left);
+        boolean right = isBalanced(root.right);
+        return left&&right;
     }
 
-    public TreeNode buildTree(int[] nums, int start, int end) {
-
-        if (start>end) {
-            return null;
+    public int depth(TreeNode root, int depth) {
+        if (root==null) {
+            return depth;
         }
-        int half = (end+start)/2;
-        TreeNode node = new TreeNode(nums[half]);
-        node.left = buildTree(nums, start, half-1);
-        node.right = buildTree(nums, half+1, end);
-        return node;
+        return Math.max(depth(root.left, depth+1), depth(root.right, depth+1));
     }
 }

@@ -65,4 +65,28 @@ public class TreeNode {
         }
         return root;
     }
+    public static TreeNode buildTree(Integer[] arr) {
+        if (arr==null||arr.length==0) {
+            return null;
+        }
+        TreeNode root = new TreeNode(arr[0], null, null,0);
+        java.util.Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while(!stack.isEmpty()) {
+            TreeNode curRoot = stack.pop();
+            int leftIndex = curRoot.index*2+1;
+            int rightIndex = curRoot.index*2+2;
+            if (leftIndex<arr.length&&arr[leftIndex]!=null) {
+                TreeNode left = new TreeNode(arr[leftIndex],null,null, leftIndex);
+                stack.push(left);
+                curRoot.left = left;
+            }
+            if (rightIndex< arr.length&&arr[rightIndex]!=null) {
+                TreeNode right = new TreeNode(arr[rightIndex],null,null, rightIndex);
+                stack.push(right);
+                curRoot.right = right;
+            }
+        }
+        return root;
+    }
 }
