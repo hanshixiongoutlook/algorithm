@@ -7,7 +7,7 @@ import org.junit.Test;
 /**
  * https://leetcode-cn.com/problems/balanced-binary-tree/
  */
-public class LeetcodeEasy110 {
+public class Easy0110_BalancedBinaryTree {
 
     @Test
     public void test() {

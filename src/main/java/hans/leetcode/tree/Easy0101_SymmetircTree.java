@@ -6,7 +6,7 @@ import org.junit.Test;
 /**
  * https://leetcode-cn.com/problems/symmetric-tree/
  */
-public class LeetcodeEasy101 {
+public class Easy0101_SymmetircTree {
     @Test
     public void test() {
         TreeNode tree1 = TreeNode.buildTree(new int[]{1,2,2,3,4,4,3});
@@ -22,11 +22,8 @@ public class LeetcodeEasy101 {
     }
 
     private boolean isSymmetricChild(TreeNode left, TreeNode right) {
-        if (left==null&&left==right) {
-            return true;
-        }
-        if ((left==null||right==null)&&left!=right) {
-            return false;
+        if (left==null||right==null) {
+            return left==right;
         }
         if (left.val!=right.val) {
             return false;

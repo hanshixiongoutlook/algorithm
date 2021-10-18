@@ -10,7 +10,7 @@ import java.util.List;
  * TODO
  * https://leetcode-cn.com/problems/binary-tree-paths/
  */
-public class LeetcodeEasy257 {
+public class Easy0257_BinaryTreePaths {
 
     @Test
     public void test() {

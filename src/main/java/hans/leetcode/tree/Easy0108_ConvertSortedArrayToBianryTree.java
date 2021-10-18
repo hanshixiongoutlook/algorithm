@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * https://leetcode-cn.com/problems/convert-sorted-array-to-binary-tree/
  */
-public class LeetcodeEasy108 {
+public class Easy0108_ConvertSortedArrayToBianryTree {
 
     @Test
     public void test() {

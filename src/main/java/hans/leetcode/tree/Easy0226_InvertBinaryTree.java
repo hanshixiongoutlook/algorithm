@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * https://leetcode-cn.com/problems/invert-binary-tree/
  */
-public class LeetcodeEasy226 {
+public class Easy0226_InvertBinaryTree {
 
     public TreeNode invertTree(TreeNode root) {
         if (root==null) {

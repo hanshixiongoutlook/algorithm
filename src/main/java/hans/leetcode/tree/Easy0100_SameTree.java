@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * https://leetcode-cn.com/problems/same-tree/
  */
-public class LeetcodeEasy100 {
+public class Easy0100_SameTree {
     @Test
     public void test() {
         TreeNode tree1 = TreeNode.buildTree(new int[]{1, 2, 3});

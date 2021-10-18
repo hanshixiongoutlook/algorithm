@@ -6,7 +6,7 @@ import org.junit.Test;
 /**
  * https://leetcode-cn.com/problems/sum-of-left-leaves/
  */
-public class LeetcodeEasy404 {
+public class Easy0404_SumOfLeftLeaves {
 
     @Test
     public void test() {

@@ -5,7 +5,7 @@ import hans.algorithm.pojo.TreeNode;
 import org.junit.Test;
 
 
-public class LeetcodeEasy112 {
+public class Easy0112_PathSum {
 
     @Test
     public void test() {

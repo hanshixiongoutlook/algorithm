@@ -1,4 +1,4 @@
-package hans.leetcode.tree;
+package hans.leetcode.tree.bst;
 
 import hans.algorithm.pojo.TreeNode;
 import org.junit.Test;
@@ -6,7 +6,7 @@ import org.junit.Test;
 /**
  * https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/
  */
-public class LeetcodeEasy104 {
+public class Easy0104_MaximumDepthOfBinaryTree {
     @Test
     public void test() {
         TreeNode tree1 = TreeNode.buildTree(new int[]{1,2,2,3,4,4,3});
@@ -15,13 +15,9 @@ public class LeetcodeEasy104 {
         System.out.println(treeNode);
     }
     public int maxDepth(TreeNode root) {
-        return maxDepth(root, 0);
-    }
-
-    public int maxDepth(TreeNode root, int depth) {
         if (root==null) {
-            return depth;
+            return 0;
         }
-        return Math.max(maxDepth(root.left, depth+1),maxDepth(root.right, depth+1));
+        return Math.max(maxDepth(root.left), maxDepth(root.right))+1;
     }
 }

@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * https://leetcode-cn.com/problems/binary-tree-postorder-traversal/submissions/
  */
-public class LeetcodeEasy145 {
+public class Easy0145_BinaryTreePostorderTraversal {
 
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<Integer>();

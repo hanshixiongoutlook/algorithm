@@ -11,7 +11,7 @@ import org.junit.Test;
  * 4 5 n n
  * 6
  */
-public class LeetcodeEasy111 {
+public class Easy0111_MinimumDepthOfBinaryTree {
 
     @Test
     public void test() {
