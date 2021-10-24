@@ -13,8 +13,10 @@ public class TreeNode {
     public TreeNode left;
     public TreeNode right;
     public int index;
+
     public TreeNode() {
     }
+
     public TreeNode(int val) {
         this.val = val;
     }
@@ -36,54 +38,55 @@ public class TreeNode {
      * input a binary tree with array struct,
      * this method will turn this array tree to a linked tree,
      * and return the root of the linked binary tree.
-     *
+     * <p>
      * if param arr is null or length is 0,will return null.
      *
      * @param arr
      * @return
      */
     public static TreeNode buildTree(int[] arr) {
-        if (arr==null||arr.length==0) {
+        if (arr == null || arr.length == 0) {
             return null;
         }
-        TreeNode root = new TreeNode(arr[0], null, null,0);
+        TreeNode root = new TreeNode(arr[0], null, null, 0);
         java.util.Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
-        while(!stack.isEmpty()) {
+        while (!stack.isEmpty()) {
             TreeNode curRoot = stack.pop();
-            int leftIndex = curRoot.index*2+1;
-            int rightIndex = curRoot.index*2+2;
-            if (leftIndex<arr.length) {
-                TreeNode left = new TreeNode(arr[leftIndex],null,null, leftIndex);
+            int leftIndex = curRoot.index * 2 + 1;
+            int rightIndex = curRoot.index * 2 + 2;
+            if (leftIndex < arr.length) {
+                TreeNode left = new TreeNode(arr[leftIndex], null, null, leftIndex);
                 stack.push(left);
                 curRoot.left = left;
             }
-            if (rightIndex< arr.length) {
-                TreeNode right = new TreeNode(arr[rightIndex],null,null, rightIndex);
+            if (rightIndex < arr.length) {
+                TreeNode right = new TreeNode(arr[rightIndex], null, null, rightIndex);
                 stack.push(right);
                 curRoot.right = right;
             }
         }
         return root;
     }
+
     public static TreeNode buildTree(Integer[] arr) {
-        if (arr==null||arr.length==0) {
+        if (arr == null || arr.length == 0) {
             return null;
         }
-        TreeNode root = new TreeNode(arr[0], null, null,0);
+        TreeNode root = new TreeNode(arr[0], null, null, 0);
         java.util.Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
-        while(!stack.isEmpty()) {
+        while (!stack.isEmpty()) {
             TreeNode curRoot = stack.pop();
-            int leftIndex = curRoot.index*2+1;
-            int rightIndex = curRoot.index*2+2;
-            if (leftIndex<arr.length&&arr[leftIndex]!=null) {
-                TreeNode left = new TreeNode(arr[leftIndex],null,null, leftIndex);
+            int leftIndex = curRoot.index * 2 + 1;
+            int rightIndex = curRoot.index * 2 + 2;
+            if (leftIndex < arr.length && arr[leftIndex] != null) {
+                TreeNode left = new TreeNode(arr[leftIndex], null, null, leftIndex);
                 stack.push(left);
                 curRoot.left = left;
             }
-            if (rightIndex< arr.length&&arr[rightIndex]!=null) {
-                TreeNode right = new TreeNode(arr[rightIndex],null,null, rightIndex);
+            if (rightIndex < arr.length && arr[rightIndex] != null) {
+                TreeNode right = new TreeNode(arr[rightIndex], null, null, rightIndex);
                 stack.push(right);
                 curRoot.right = right;
             }
@@ -94,45 +97,56 @@ public class TreeNode {
 
     /**
      * convert linked tree to array
+     *
      * @return
      */
     public Integer[] toArray() {
-        if (this.left==null&&this.right==null) {
+        if (this.left == null && this.right == null) {
             return new Integer[]{this.val};
         }
+        // node list
         List<Integer> list = new ArrayList<>();
-        int level=0;
+        // current level of the tree
+        int level = 0;
+        // traversal tree by bfs by queue
         Queue<TreeNode> traversal = new LinkedList<>();
         traversal.add(this);
         int depth = depth();
-        Double count = Math.pow(2,level);
+
+        // maximum node quantity of each layer
+        Double count = Math.pow(2, level);
+
+        // nonnull node counter of each layer.
         int nonnullCount = count.intValue();
         while (!traversal.isEmpty()) {
             count--;
             TreeNode node = traversal.remove();
-            if (node!=null) {
+            if (node != null) {
                 list.add(node.val);
                 traversal.add(node.left);
                 traversal.add(node.right);
             } else {
                 list.add(null);
-                if (level<depth-1) {
+                if (level < depth - 1) {
                     traversal.add(null);
                     traversal.add(null);
                 }
                 nonnullCount--;
             }
-            if (count==0&&nonnullCount==0) {
+            //  if all of the nodes is null in the layer, teminal the while loop
+            if (count == 0 && nonnullCount == 0) {
                 break;
             }
-            if (count==0&&nonnullCount!=0) {
+            // if exist nonnull node in current layer, loop the next layer
+            if (count == 0 && nonnullCount != 0) {
                 level++;
-                count = Math.pow(2,level);
+                count = Math.pow(2, level);
                 nonnullCount = count.intValue();
             }
         }
-        for (int i=list.size()-1; i>0; i--) {
-            if (list.get(i)==null) {
+        // clean non-relationship null node
+        for (int i = list.size() - 1; i > 0; i--) {
+            if (list.get(i) == null) {
                 list.remove(i);
             } else {
                 break;
@@ -145,6 +159,7 @@ public class TreeNode {
 
     /**
      * return the max depth of this tree
+     *
      * @return
      */
     public int depth() {
@@ -152,10 +167,10 @@ public class TreeNode {
     }
 
     private int depth(TreeNode treeNode) {
-        if (treeNode==null) {
+        if (treeNode == null) {
             return 0;
         }
-        return Math.max(depth(treeNode.left)+1, depth(treeNode.right)+1);
+        return Math.max(depth(treeNode.left) + 1, depth(treeNode.right) + 1);
     }
 
     /**
@@ -168,9 +183,9 @@ public class TreeNode {
         StringBuffer buffer = new StringBuffer();
         buffer.append("[");
         Integer[] arr = this.toArray();
-        for (int i=0; i<arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             buffer.append(arr[i]);
-            if (i<arr.length-1) {
+            if (i < arr.length - 1) {
                 buffer.append(",");
             }
         }
@@ -198,60 +213,59 @@ public class TreeNode {
 
     private StringBuilder prettyPrint(TreeNode root, int currentHeight, int totalHeight) {
         StringBuilder sb = new StringBuilder();
-        int spaces = getSpaceCount(totalHeight-currentHeight + 1);
-        if(root == null) {
+        int spaces = getSpaceCount(totalHeight - currentHeight + 1);
+        if (root == null) {
             //create a 'spatial' block and return it
-            String row = String.format("%"+(2*spaces+1)+"s%n", "");
+            String row = String.format("%" + (2 * spaces + 1) + "s%n", "");
             //now repeat this row space+1 times
-            String block = new String(new char[spaces+1]).replace("\0", row);
+            String block = new String(new char[spaces + 1]).replace("\0", row);
             return new StringBuilder(block);
         }
-        if(currentHeight==totalHeight) return new StringBuilder(root.val+"");
-        int slashes = getSlashCount(totalHeight-currentHeight +1);
-        sb.append(String.format("%"+(spaces+1)+"s%"+spaces+"s", root.val+"", ""));
+        if (currentHeight == totalHeight) return new StringBuilder(root.val + "");
+        int slashes = getSlashCount(totalHeight - currentHeight + 1);
+        sb.append(String.format("%" + (spaces + 1) + "s%" + spaces + "s", root.val + "", ""));
         sb.append("\n");
         //now print / and \
         // but make sure that left and right exists
-        char leftSlash = root.left == null? ' ':'/';
-        char rightSlash = root.right==null? ' ':'\\';
+        char leftSlash = root.left == null ? ' ' : '/';
+        char rightSlash = root.right == null ? ' ' : '\\';
         int spaceInBetween = 1;
-        for(int i=0, space = spaces-1; i<slashes; i++, space --, spaceInBetween+=2) {
-            for(int j=0; j<space; j++) sb.append(" ");
+        for (int i = 0, space = spaces - 1; i < slashes; i++, space--, spaceInBetween += 2) {
+            for (int j = 0; j < space; j++) sb.append(" ");
             sb.append(leftSlash);
-            for(int j=0; j<spaceInBetween; j++) sb.append(" ");
-            sb.append(rightSlash+"");
-            for(int j=0; j<space; j++) sb.append(" ");
+            for (int j = 0; j < spaceInBetween; j++) sb.append(" ");
+            sb.append(rightSlash + "");
+            for (int j = 0; j < space; j++) sb.append(" ");
             sb.append("\n");
         }
-        //sb.append("\n");
-
         //now get string representations of left and right subtrees
-        StringBuilder leftTree = prettyPrint(root.left, currentHeight+1, totalHeight);
-        StringBuilder rightTree = prettyPrint(root.right, currentHeight+1, totalHeight);
+        StringBuilder leftTree = prettyPrint(root.left, currentHeight + 1, totalHeight);
+        StringBuilder rightTree = prettyPrint(root.right, currentHeight + 1, totalHeight);
         // now line by line print the trees side by side
         Scanner leftScanner = new Scanner(leftTree.toString());
         Scanner rightScanner = new Scanner(rightTree.toString());
-//		spaceInBetween+=1;
-        while(leftScanner.hasNextLine()) {
-            if(currentHeight==totalHeight-1) {
+        // spaceInBetween+=1;
+        while (leftScanner.hasNextLine()) {
+            if (currentHeight == totalHeight - 1) {
                 sb.append(String.format("%-2s %2s", leftScanner.nextLine(), rightScanner.nextLine()));
                 sb.append("\n");
-                spaceInBetween-=2;
-            }
-            else {
+                spaceInBetween -= 2;
+            } else {
                 sb.append(leftScanner.nextLine());
                 sb.append(" ");
-                sb.append(rightScanner.nextLine()+"\n");
+                sb.append(rightScanner.nextLine() + "\n");
             }
         }
 
         return sb;
     }
+
     private int getSpaceCount(int height) {
-        return (int) (3*Math.pow(2, height-2)-1);
+        return (int) (3 * Math.pow(2, height - 2) - 1);
     }
+
     private int getSlashCount(int height) {
-        if(height <= 3) return height -1;
-        return (int) (3*Math.pow(2, height-3)-1);
+        if (height <= 3) return height - 1;
+        return (int) (3 * Math.pow(2, height - 3) - 1);
     }
 }

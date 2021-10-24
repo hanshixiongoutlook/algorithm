@@ -12,7 +12,12 @@ public class Easy0617_MergeTwoBinaryTrees {
         TreeNode treeNode = TreeNode.buildTree(new Integer[]{1,2,3,4});
         TreeNode treeNode2 = TreeNode.buildTree(new Integer[]{1,2,3,null,5});
         TreeNode result = this.mergeTrees(treeNode, treeNode2);
-        System.out.println(result);
+        System.out.println("Tree 1:");
+        treeNode.prettyPrint();
+        System.out.println("Tree 2:");
+        treeNode2.prettyPrint();
+        System.out.println("Merge tree 1 and tree 2:");
+        result.prettyPrint();
     }
 
     public TreeNode mergeTrees(TreeNode root1, TreeNode root2) {
