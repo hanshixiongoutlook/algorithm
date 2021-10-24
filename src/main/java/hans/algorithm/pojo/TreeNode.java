@@ -1,19 +1,18 @@
 package hans.algorithm.pojo;
 
+import hans.algorithm.utils.Logger;
+
 import java.util.Stack;
+import java.util.*;
 
 /**
  * 树的节点
  */
 public class TreeNode {
     public Integer val;
-
     public TreeNode left;
-
     public TreeNode right;
-
     public int index;
-
     public TreeNode() {
     }
     public TreeNode(int val) {
@@ -90,5 +89,169 @@ public class TreeNode {
             }
         }
         return root;
+    }
+
+
+    /**
+     * convert linked tree to array
+     * @return
+     */
+    public Integer[] toArray() {
+        if (this.left==null&&this.right==null) {
+            return new Integer[]{this.val};
+        }
+        List<Integer> list = new ArrayList<>();
+        int level=0;
+        Queue<TreeNode> traversal = new LinkedList<>();
+        traversal.add(this);
+        int depth = depth();
+        Double count = Math.pow(2,level);
+        int nonnullCount = count.intValue();
+        while (!traversal.isEmpty()) {
+            count--;
+            TreeNode node = traversal.remove();
+            if (node!=null) {
+                list.add(node.val);
+                traversal.add(node.left);
+                traversal.add(node.right);
+            } else {
+                list.add(null);
+                if (level<depth-1) {
+                    traversal.add(null);
+                    traversal.add(null);
+                }
+                nonnullCount--;
+            }
+            if (count==0&&nonnullCount==0) {
+                break;
+            }
+            if (count==0&&nonnullCount!=0) {
+                level++;
+                count = Math.pow(2,level);
+                nonnullCount = count.intValue();
+            }
+        }
+        for (int i=list.size()-1; i>0; i--) {
+            if (list.get(i)==null) {
+                list.remove(i);
+            } else {
+                break;
+            }
+        }
+        Integer[] arr = new Integer[list.size()];
+        return list.toArray(arr);
+
+    }
+
+    /**
+     * return the max depth of this tree
+     * @return
+     */
+    public int depth() {
+        return depth(this);
+    }
+
+    private int depth(TreeNode treeNode) {
+        if (treeNode==null) {
+            return 0;
+        }
+        return Math.max(depth(treeNode.left)+1, depth(treeNode.right)+1);
+    }
+
+    /**
+     * print tree with array constructure
+     * <pre>
+     *     [1,2,3,null,5]
+     * </pre>
+     */
+    public void arrayPrint() {
+        StringBuffer buffer = new StringBuffer();
+        buffer.append("[");
+        Integer[] arr = this.toArray();
+        for (int i=0; i<arr.length; i++) {
+            buffer.append(arr[i]);
+            if (i<arr.length-1) {
+                buffer.append(",");
+            }
+        }
+        buffer.append("]");
+        Logger.log(buffer.toString());
+    }
+
+
+    /**
+     * print tree with pretty constructure</br>
+     * example: [1,2,3,null,5] </br>
+     * <pre>
+     *      1
+     *     / \
+     *    /   \
+     *   2     3
+     *    \
+     *     5
+     * </pre>
+     */
+    public void prettyPrint() {
+        int height = this.depth();
+        System.out.println(prettyPrint(this, 1, height));
+    }
+
+    private StringBuilder prettyPrint(TreeNode root, int currentHeight, int totalHeight) {
+        StringBuilder sb = new StringBuilder();
+        int spaces = getSpaceCount(totalHeight-currentHeight + 1);
+        if(root == null) {
+            //create a 'spatial' block and return it
+            String row = String.format("%"+(2*spaces+1)+"s%n", "");
+            //now repeat this row space+1 times
+            String block = new String(new char[spaces+1]).replace("\0", row);
+            return new StringBuilder(block);
+        }
+        if(currentHeight==totalHeight) return new StringBuilder(root.val+"");
+        int slashes = getSlashCount(totalHeight-currentHeight +1);
+        sb.append(String.format("%"+(spaces+1)+"s%"+spaces+"s", root.val+"", ""));
+        sb.append("\n");
+        //now print / and \
+        // but make sure that left and right exists
+        char leftSlash = root.left == null? ' ':'/';
+        char rightSlash = root.right==null? ' ':'\\';
+        int spaceInBetween = 1;
+        for(int i=0, space = spaces-1; i<slashes; i++, space --, spaceInBetween+=2) {
+            for(int j=0; j<space; j++) sb.append(" ");
+            sb.append(leftSlash);
+            for(int j=0; j<spaceInBetween; j++) sb.append(" ");
+            sb.append(rightSlash+"");
+            for(int j=0; j<space; j++) sb.append(" ");
+            sb.append("\n");
+        }
+        //sb.append("\n");
+
+        //now get string representations of left and right subtrees
+        StringBuilder leftTree = prettyPrint(root.left, currentHeight+1, totalHeight);
+        StringBuilder rightTree = prettyPrint(root.right, currentHeight+1, totalHeight);
+        // now line by line print the trees side by side
+        Scanner leftScanner = new Scanner(leftTree.toString());
+        Scanner rightScanner = new Scanner(rightTree.toString());
+//		spaceInBetween+=1;
+        while(leftScanner.hasNextLine()) {
+            if(currentHeight==totalHeight-1) {
+                sb.append(String.format("%-2s %2s", leftScanner.nextLine(), rightScanner.nextLine()));
+                sb.append("\n");
+                spaceInBetween-=2;
+            }
+            else {
+                sb.append(leftScanner.nextLine());
+                sb.append(" ");
+                sb.append(rightScanner.nextLine()+"\n");
+            }
+        }
+
+        return sb;
+    }
+    private int getSpaceCount(int height) {
+        return (int) (3*Math.pow(2, height-2)-1);
+    }
+    private int getSlashCount(int height) {
+        if(height <= 3) return height -1;
+        return (int) (3*Math.pow(2, height-3)-1);
     }
 }
