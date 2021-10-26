@@ -6,6 +6,9 @@ import hans.algorithm.utils.Logger;
 import org.junit.Test;
 
 
+/**
+ * 同剑指55
+ */
 public class EasyLCCI0402_CheckBalance {
 
     @Test

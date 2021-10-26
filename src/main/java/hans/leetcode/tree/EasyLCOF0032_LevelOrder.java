@@ -10,7 +10,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-
+/**
+ * 同102
+ */
 public class EasyLCOF0032_LevelOrder {
 
     @Test
@@ -45,6 +47,8 @@ public class EasyLCOF0032_LevelOrder {
                 if (node.right!=null) {
                     queue2.add(node.right);
                 }
+            }
+            if (!values.isEmpty()) {
                 list.add(values);
             }
             values = new LinkedList<>();
@@ -58,7 +62,9 @@ public class EasyLCOF0032_LevelOrder {
                     queue.add(node.right);
                 }
             }
-            list.add(values);
+            if (!values.isEmpty()) {
+                list.add(values);
+            }
         }
         return list;
     }
