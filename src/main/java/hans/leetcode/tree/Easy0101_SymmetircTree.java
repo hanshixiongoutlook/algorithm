@@ -5,6 +5,7 @@ import org.junit.Test;
 
 /**
  * https://leetcode-cn.com/problems/symmetric-tree/
+ * 同 剑指28
  */
 public class Easy0101_SymmetircTree {
     @Test

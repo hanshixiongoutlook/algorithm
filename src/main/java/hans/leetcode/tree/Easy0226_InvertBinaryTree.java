@@ -1,14 +1,23 @@
 package hans.leetcode.tree;
 
 import hans.algorithm.pojo.TreeNode;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * https://leetcode-cn.com/problems/invert-binary-tree/
+ * 同 剑指27
  */
 public class Easy0226_InvertBinaryTree {
+    @Test
+    public void test() {
+        TreeNode treeNode = TreeNode.buildTree(new Integer[]{1,2,3});
+        treeNode.prettyPrint();
+        this.invertTree(treeNode);
+        treeNode.prettyPrint();
+    }
 
     public TreeNode invertTree(TreeNode root) {
         if (root==null) {
