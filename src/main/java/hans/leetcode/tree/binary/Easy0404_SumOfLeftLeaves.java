@@ -1,4 +1,4 @@
-package hans.leetcode.tree;
+package hans.leetcode.tree.binary;
 
 import hans.algorithm.pojo.TreeNode;
 import org.junit.Test;
@@ -11,7 +11,7 @@ public class Easy0404_SumOfLeftLeaves {
     @Test
     public void test() {
         TreeNode treeNode = TreeNode.buildTree(new int[]{3,4,5,6,7,8,9,});
-
+        treeNode.prettyPrint();
         System.out.println(this.sumOfLeftLeaves(treeNode));
     }
 

@@ -1,4 +1,4 @@
-package hans.leetcode.tree;
+package hans.leetcode.tree.binary;
 
 
 import hans.algorithm.pojo.TreeNode;
@@ -13,7 +13,8 @@ public class Easy0563_BinaryTreeTilt {
     @Test
     public void test() {
         TreeNode treeNode = TreeNode.buildTree(new Integer[]{1,2,3});
-//
+
+        treeNode.prettyPrint();
         System.out.println(this.findTilt(treeNode));
     }
     int sum=0;

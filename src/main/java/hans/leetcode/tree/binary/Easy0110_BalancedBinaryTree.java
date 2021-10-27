@@ -1,4 +1,4 @@
-package hans.leetcode.tree;
+package hans.leetcode.tree.binary;
 
 
 import hans.algorithm.pojo.TreeNode;
@@ -6,6 +6,7 @@ import org.junit.Test;
 
 /**
  * https://leetcode-cn.com/problems/balanced-binary-tree/
+ * 同 LCCI04.02
  */
 public class Easy0110_BalancedBinaryTree {
 

@@ -1,4 +1,4 @@
-package hans.leetcode.tree;
+package hans.leetcode.tree.binary;
 
 import hans.algorithm.pojo.TreeNode;
 import org.junit.Test;
