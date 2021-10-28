@@ -268,4 +268,43 @@ public class TreeNode {
         if (height <= 3) return height - 1;
         return (int) (3 * Math.pow(2, height - 3) - 1);
     }
+
+    public void preoderPrint() {
+        preoderPrint(this);
+        System.out.println();
+    }
+    private void preoderPrint(TreeNode treeNode) {
+        if (treeNode==null) {
+            return;
+        }
+        Logger.logWithoutEnter(treeNode.val+",");
+        preoderPrint(treeNode.left);
+        preoderPrint(treeNode.right);
+    }
+
+    public void inoderPrint() {
+        inoderPrint(this);
+        System.out.println();
+    }
+    private void inoderPrint(TreeNode treeNode) {
+        if (treeNode==null) {
+            return;
+        }
+        inoderPrint(treeNode.left);
+        Logger.logWithoutEnter(treeNode.val+",");
+        inoderPrint(treeNode.right);
+    }
+
+    public void postoderPrint() {
+        postoderPrint(this);
+        System.out.println();
+    }
+    private void postoderPrint(TreeNode treeNode) {
+        if (treeNode==null) {
+            return;
+        }
+        postoderPrint(treeNode.left);
+        Logger.logWithoutEnter(treeNode.val+",");
+        postoderPrint(treeNode.right);
+    }
 }

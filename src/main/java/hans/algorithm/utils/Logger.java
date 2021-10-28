@@ -42,7 +42,13 @@ public class Logger {
 		}
 		System.out.println(message);
 	}
-
+	public static void logWithoutEnter(Object message) {
+		if (message==null) {
+			System.out.println("null");
+			return;
+		}
+		System.out.print(message);
+	}
 	/**
 	 * Print log and convert param to json.
 	 * @param message
