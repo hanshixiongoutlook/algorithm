@@ -6,13 +6,14 @@ import org.junit.Test;
 /**
  * https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
  */
-public class LeetcodeEasy235 {
+public class Easy0235_lowestCommonAncestor {
 
     @Test
     public void test() {
         int[] arr = new int[]{3,1,4,Integer.MIN_VALUE,2};
         TreeNode integerTreeNode = TreeNode.buildTree(arr);
-        TreeNode treeNode = this.lowestCommonAncestor(integerTreeNode, new TreeNode(2, null, null,0), new TreeNode(3, null, null,0));
+        integerTreeNode.prettyPrint();
+        TreeNode treeNode = this.lowestCommonAncestor(integerTreeNode, new TreeNode(2), new TreeNode(3));
         System.out.println(treeNode.val);
     }
 

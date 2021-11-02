@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Queue;
 
 
-public class EasyLCOF0068_lowestCommonAncestor2 {
+public class EasyLCOF0068_lowestCommonAncestorBinary {
 
     @Test
     public void test() {
