@@ -94,7 +94,23 @@ public class TreeNode {
         return root;
     }
 
-
+    /**
+     * build a binary search tree
+     * @param arr
+     * @return
+     */
+    public static TreeNode buildSearchTree(int[] arr) {
+        return sortedArrayToBST(arr, 0, arr.length-1);
+    }
+    public static TreeNode sortedArrayToBST(int[] nums, int start, int end) {
+        if (start>end) {
+            return null;
+        }
+        TreeNode root = new TreeNode(nums[(end-start)/2+start]);
+        root.left = sortedArrayToBST(nums, start, (end-start)/2+start-1);
+        root.right = sortedArrayToBST(nums, (end-start)/2+start+1, end);
+        return root;
+    }
     /**
      * convert linked tree to array
      *
