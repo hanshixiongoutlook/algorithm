@@ -320,7 +320,7 @@ public class TreeNode {
             return;
         }
         postoderPrint(treeNode.left);
-        Logger.logWithoutEnter(treeNode.val+",");
         postoderPrint(treeNode.right);
+        Logger.logWithoutEnter(treeNode.val+",");
     }
 }
