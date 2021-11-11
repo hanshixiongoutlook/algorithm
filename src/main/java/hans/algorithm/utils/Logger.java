@@ -71,4 +71,7 @@ public class Logger {
 		}
 		System.out.println(message);
 	}
+	public static void log2Json(Object message) {
+		System.out.println(JSONObject.toJSONString(message));
+	}
 }
