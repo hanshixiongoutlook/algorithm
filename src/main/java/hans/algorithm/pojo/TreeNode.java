@@ -100,6 +100,7 @@ public class TreeNode {
      * @return
      */
     public static TreeNode buildSearchTree(int[] arr) {
+        Arrays.sort(arr);
         return sortedArrayToBST(arr, 0, arr.length-1);
     }
     public static TreeNode sortedArrayToBST(int[] nums, int start, int end) {
@@ -320,7 +321,7 @@ public class TreeNode {
             return;
         }
         postoderPrint(treeNode.left);
-        Logger.logWithoutEnter(treeNode.val+",");
         postoderPrint(treeNode.right);
+        Logger.logWithoutEnter(treeNode.val+",");
     }
 }

@@ -6,7 +6,7 @@ import org.junit.Test;
 /**
  * https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
  */
-public class Easy0235_lowestCommonAncestor {
+public class Easy0235_lowestCommonAncestorInBST {
 
     @Test
     public void test() {
