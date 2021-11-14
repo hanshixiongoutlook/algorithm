@@ -1,4 +1,4 @@
-package hans.leetcode.tree.binary;
+package hans.leetcode.tree.binary.serialize;
 
 
 import hans.algorithm.pojo.TreeNode;
@@ -10,7 +10,7 @@ public class Easy0606_ConstructStringFromBinaryTree {
 
     @Test
     public void test() {
-        TreeNode treeNode = TreeNode.buildTree(new Integer[]{1,2,3,4,5,null,6});
+        TreeNode treeNode = TreeNode.buildTree(new Integer[]{1,null,2,null,null,null,5});
         treeNode.prettyPrint();
         String result = this.tree2str(treeNode);
         System.out.println(result);
