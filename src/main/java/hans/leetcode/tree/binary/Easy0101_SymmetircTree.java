@@ -10,7 +10,9 @@ import org.junit.Test;
 public class Easy0101_SymmetircTree {
     @Test
     public void test() {
-        TreeNode tree1 = TreeNode.buildTree(new int[]{1,2,2,3,4,4,3});
+        TreeNode tree1 = TreeNode.buildTree(new Integer[]{1,null,2,null,null,4,3});
+        tree1.prettyPrint();
+        tree1.arrayPrint();
         boolean treeNode = isSymmetric(tree1);
 
         System.out.println(treeNode);

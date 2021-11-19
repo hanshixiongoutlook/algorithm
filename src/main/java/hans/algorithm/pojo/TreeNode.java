@@ -112,67 +112,6 @@ public class TreeNode {
         root.right = sortedArrayToBST(nums, (end-start)/2+start+1, end);
         return root;
     }
-    /**
-     * convert linked tree to array
-     *
-     * @return
-     */
-    public Integer[] toArray() {
-        if (this.left == null && this.right == null) {
-            return new Integer[]{this.val};
-        }
-        // node list
-        List<Integer> list = new ArrayList<>();
-        // current level of the tree
-        int level = 0;
-        // traversal tree by bfs by queue
-        Queue<TreeNode> traversal = new LinkedList<>();
-        traversal.add(this);
-        int depth = depth();
-
-        // maximum node quantity of each layer
-        Double count = Math.pow(2, level);
-
-        // nonnull node counter of each layer.
-        int nonnullCount = count.intValue();
-        while (!traversal.isEmpty()) {
-            count--;
-            TreeNode node = traversal.remove();
-            if (node != null) {
-                list.add(node.val);
-                traversal.add(node.left);
-                traversal.add(node.right);
-            } else {
-                list.add(null);
-                if (level < depth - 1) {
-                    traversal.add(null);
-                    traversal.add(null);
-                }
-                nonnullCount--;
-            }
-            //  if all of the nodes is null in the layer, teminal the while loop
-            if (count == 0 && nonnullCount == 0) {
-                break;
-            }
-            // if exist nonnull node in current layer, loop the next layer
-            if (count == 0 && nonnullCount != 0) {
-                level++;
-                count = Math.pow(2, level);
-                nonnullCount = count.intValue();
-            }
-        }
-        // clean non-relationship null node
-        for (int i = list.size() - 1; i > 0; i--) {
-            if (list.get(i) == null) {
-                list.remove(i);
-            } else {
-                break;
-            }
-        }
-        Integer[] arr = new Integer[list.size()];
-        return list.toArray(arr);
-
-    }
 
     /**
      * return the max depth of this tree
@@ -197,17 +136,23 @@ public class TreeNode {
      * </pre>
      */
     public void arrayPrint() {
-        StringBuffer buffer = new StringBuffer();
-        buffer.append("[");
-        Integer[] arr = this.toArray();
-        for (int i = 0; i < arr.length; i++) {
-            buffer.append(arr[i]);
-            if (i < arr.length - 1) {
-                buffer.append(",");
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(this);
+        Deque<Integer> list = new LinkedList<>();
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            if (node!=null) {
+                list.add(node.val);
+                queue.offer(node.left);
+                queue.offer(node.right);
+            } else {
+                list.add(null);
             }
         }
-        buffer.append("]");
-        Logger.log(buffer.toString());
+        while (list.getLast()==null) {
+            list.pollLast();
+        }
+        Logger.log2Json(list);
     }
 
 
