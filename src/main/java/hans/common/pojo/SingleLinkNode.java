@@ -1,4 +1,4 @@
-package hans.algorithm.pojo;
+package hans.common.pojo;
 
 /**
  * 单链表节点

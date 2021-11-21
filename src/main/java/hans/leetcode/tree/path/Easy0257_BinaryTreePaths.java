@@ -1,6 +1,7 @@
-package hans.leetcode.tree;
+package hans.leetcode.tree.path;
 
-import hans.algorithm.pojo.TreeNode;
+import hans.common.pojo.TreeNode;
+import hans.common.utils.Logger;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -14,8 +15,9 @@ public class Easy0257_BinaryTreePaths {
 
     @Test
     public void test() {
-        TreeNode treeNode = TreeNode.buildTree(new int[]{1,2,3,Integer.MIN_VALUE,5});
-        System.out.println(this.binaryTreePaths(treeNode));
+        TreeNode treeNode = TreeNode.buildTree(new Integer[]{1,2,3,null,5});
+        treeNode.prettyPrint();
+        Logger.log(this.binaryTreePaths(treeNode));
     }
 
     public List<String> binaryTreePaths(TreeNode root) {

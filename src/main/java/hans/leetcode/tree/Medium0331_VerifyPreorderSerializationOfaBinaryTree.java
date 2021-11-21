@@ -1,7 +1,7 @@
 package hans.leetcode.tree;
 
 
-import hans.algorithm.utils.Logger;
+import hans.common.utils.Logger;
 import org.junit.Test;
 
 /**
@@ -15,7 +15,7 @@ public class Medium0331_VerifyPreorderSerializationOfaBinaryTree {
         // 9,3,4,#,#,1,#,#,2,#,6,#,#  true
         // 9,#,#,1 false
         String preorder = "9,#,#,1";
-        Logger.log2Json(isValidSerialization(preorder));
+        Logger.log(isValidSerialization(preorder));
 
     }
 

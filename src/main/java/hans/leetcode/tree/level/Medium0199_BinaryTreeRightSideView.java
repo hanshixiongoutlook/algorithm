@@ -1,8 +1,8 @@
 package hans.leetcode.tree.level;
 
 
-import hans.algorithm.pojo.TreeNode;
-import hans.algorithm.utils.Logger;
+import hans.common.pojo.TreeNode;
+import hans.common.utils.Logger;
 import org.junit.Test;
 
 import java.util.LinkedList;
@@ -19,7 +19,7 @@ public class Medium0199_BinaryTreeRightSideView {
     public void test() {
         TreeNode treeNode = TreeNode.buildTree(new Integer[]{1,2,3,5,4});
         treeNode.prettyPrint();
-        Logger.log2Json(rightSideView(treeNode));
+        Logger.log(rightSideView(treeNode));
 
     }
 

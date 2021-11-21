@@ -1,7 +1,7 @@
 package hans.algorithm.sorts.practice;
 
 import com.alibaba.fastjson.JSONObject;
-import hans.algorithm.utils.Logger;
+import hans.common.utils.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -10,8 +10,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.rules.TestName;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * 排序算法合集-共9种排序

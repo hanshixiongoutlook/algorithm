@@ -1,6 +1,6 @@
 package hans.leetcode.dp;
 
-import hans.algorithm.utils.Logger;
+import hans.common.utils.Logger;
 import org.junit.Test;
 
 import java.util.Arrays;

@@ -1,14 +1,8 @@
 package hans.leetcode.tree;
 
 
-import com.alibaba.fastjson.JSONObject;
-import hans.algorithm.pojo.TreeNode;
+import hans.common.pojo.TreeNode;
 import org.junit.Test;
-import sun.reflect.generics.tree.Tree;
-
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * 			Runtime:0 ms, faster than 100.00% of Java online submissions.

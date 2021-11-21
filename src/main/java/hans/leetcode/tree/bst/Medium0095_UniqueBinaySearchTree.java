@@ -1,10 +1,8 @@
 package hans.leetcode.tree.bst;
 
-import hans.algorithm.pojo.TreeNode;
+import hans.common.pojo.TreeNode;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 

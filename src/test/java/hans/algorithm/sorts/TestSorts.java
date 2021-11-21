@@ -1,10 +1,7 @@
 package hans.algorithm.sorts;
 
 import com.alibaba.fastjson.JSONObject;
-import hans.algorithm.sorts.HeapSort;
-import hans.algorithm.sorts.ShellSort;
-import hans.algorithm.sorts.SimpleSorts;
-import hans.algorithm.utils.Logger;
+import hans.common.utils.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -79,11 +76,11 @@ public class TestSorts {
     @Before
     public void before() throws NoSuchMethodException {
         String discription = this.getClass().getDeclaredMethod(name.getMethodName()).getAnnotation(DisplayName.class).value();
-        Logger.log2Json("{} start : {}", discription, JSONObject.toJSONString(arr));
+        Logger.log("{} start : {}", discription, JSONObject.toJSONString(arr));
     }
     @After
     public void after() throws NoSuchMethodException {
         String discription = this.getClass().getDeclaredMethod(name.getMethodName()).getAnnotation(DisplayName.class).value();
-        Logger.log2Json("{} completed : {}", discription, JSONObject.toJSONString(arr));
+        Logger.log("{} completed : {}", discription, JSONObject.toJSONString(arr));
     }
 }

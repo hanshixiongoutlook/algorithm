@@ -1,7 +1,7 @@
 package hans.algorithm.dac;
 
-import hans.algorithm.utils.Logger;
-import hans.algorithm.utils.SortUtils;
+import hans.common.utils.Logger;
+import hans.common.utils.SortUtils;
 import org.junit.Test;
 
 public class QuickSort {
@@ -9,9 +9,9 @@ public class QuickSort {
 
 	@Test
 	public void test() {
-		Logger.log2Json("orginal={}", SortUtils.ARRAY);
+		Logger.log("orginal={}", SortUtils.ARRAY);
 		quickSort(SortUtils.ARRAY, 0, SortUtils.ARRAY.length-1);
-		Logger.log2Json("sorted={}", SortUtils.ARRAY);
+		Logger.log("sorted={}", SortUtils.ARRAY);
 
 	}
 
@@ -21,7 +21,7 @@ public class QuickSort {
 			return;
 		}
 		int pivot = merge(arr, low, high);
-		Logger.log2Json("process={}", SortUtils.ARRAY);
+		Logger.log("process={}", SortUtils.ARRAY);
 
 		quickSort(arr, low, pivot-1);
 		quickSort(arr, pivot+1, high);

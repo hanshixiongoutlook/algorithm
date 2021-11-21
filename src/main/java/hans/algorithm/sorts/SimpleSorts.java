@@ -1,11 +1,8 @@
 package hans.algorithm.sorts;
 
 import com.alibaba.fastjson.JSONObject;
-import hans.algorithm.utils.Logger;
-import hans.algorithm.utils.SortUtils;
-
-import java.util.concurrent.BlockingDeque;
-import java.util.concurrent.LinkedBlockingDeque;
+import hans.common.utils.Logger;
+import hans.common.utils.SortUtils;
 
 /**
  * 排序算法合集-共9种排序
@@ -108,7 +105,7 @@ public class SimpleSorts {
             for (int j = 0; j< arr.length-1-i; j++) {
                 if (arr[j]> arr[j+1]) {
                     SortUtils.swap(arr,j,j+1);
-                    Logger.log2Json("{}", arr);
+                    Logger.log("{}", arr);
                 }
             }
         }
@@ -148,12 +145,12 @@ public class SimpleSorts {
             arr[l] = arr[h];
             while (l<h && arr[l]<pivot) l++;
             arr[h] = arr[l];
-            Logger.log2Json("   low={}, high={}, pivot={} | after exchange is {}", low, high, pivot, arr);
+            Logger.log("   low={}, high={}, pivot={} | after exchange is {}", low, high, pivot, arr);
         }
 
         // 这里角标用h或l都可以，此时h==l
         arr[h] = pivot;
-        Logger.log2Json("Recursive : low={}, high={}, pivot={} | after exchange is {}", low, high, pivot, arr);
+        Logger.log("Recursive : low={}, high={}, pivot={} | after exchange is {}", low, high, pivot, arr);
         quick(arr, low, h-1);
         quick(arr, h+1, high);
     }

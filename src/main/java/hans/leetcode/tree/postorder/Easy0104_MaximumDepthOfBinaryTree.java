@@ -1,6 +1,6 @@
 package hans.leetcode.tree.postorder;
 
-import hans.algorithm.pojo.TreeNode;
+import hans.common.pojo.TreeNode;
 import org.junit.Test;
 
 /**

@@ -1,6 +1,6 @@
 package hans.learn;
 
-import hans.algorithm.utils.SortUtils;
+import hans.common.utils.SortUtils;
 
 public class Practices {
 

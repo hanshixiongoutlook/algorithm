@@ -1,7 +1,7 @@
-package hans.leetcode.tree;
+package hans.leetcode.tree.prepost;
 
 
-import hans.algorithm.pojo.TreeNode;
+import hans.common.pojo.TreeNode;
 import org.junit.Test;
 
 /**

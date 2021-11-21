@@ -1,6 +1,6 @@
 package hans.leetcode.tree.construct;
 
-import hans.algorithm.pojo.TreeNode;
+import hans.common.pojo.TreeNode;
 import org.junit.Test;
 
 import java.util.Arrays;

@@ -1,7 +1,5 @@
 package hans.learn;
 
-import com.alibaba.fastjson.JSONObject;
-import hans.algorithm.utils.Logger;
 import org.junit.Test;
 
 import java.util.ArrayList;

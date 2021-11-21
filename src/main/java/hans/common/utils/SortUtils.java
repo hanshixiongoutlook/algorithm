@@ -1,4 +1,4 @@
-package hans.algorithm.utils;
+package hans.common.utils;
 
 public class SortUtils {
     public static int[] ARRAY = new int[]{5,3,1,6,9,4,8,5,7};

@@ -1,7 +1,7 @@
 package hans.leetcode.tree.level;
 
 
-import hans.algorithm.pojo.Node;
+import hans.common.pojo.Node;
 import org.junit.Test;
 
 import java.util.LinkedList;

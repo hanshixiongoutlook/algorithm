@@ -2,10 +2,9 @@ package hans.leetcode.tree.path;
 
 
 import com.alibaba.fastjson.JSONObject;
-import hans.algorithm.pojo.TreeNode;
+import hans.common.pojo.TreeNode;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;

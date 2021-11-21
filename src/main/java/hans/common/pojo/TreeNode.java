@@ -1,6 +1,6 @@
-package hans.algorithm.pojo;
+package hans.common.pojo;
 
-import hans.algorithm.utils.Logger;
+import hans.common.utils.Logger;
 
 import java.util.Stack;
 import java.util.*;
@@ -155,7 +155,7 @@ public class TreeNode {
         while (list.getLast()==null) {
             list.pollLast();
         }
-        Logger.log2Json(list);
+        Logger.log(list);
     }
 
 

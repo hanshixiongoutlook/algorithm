@@ -1,4 +1,4 @@
-package hans.algorithm.utils;
+package hans.common.utils;
 
 public class PrintUtils {
 

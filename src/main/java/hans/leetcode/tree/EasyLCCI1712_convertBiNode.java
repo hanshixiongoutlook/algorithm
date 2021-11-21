@@ -1,13 +1,8 @@
 package hans.leetcode.tree;
 
 
-import hans.algorithm.pojo.TreeNode;
-import hans.algorithm.utils.Logger;
+import hans.common.pojo.TreeNode;
 import org.junit.Test;
-
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
 
 
 public class EasyLCCI1712_convertBiNode {

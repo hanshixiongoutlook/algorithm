@@ -1,10 +1,7 @@
 package hans.leetcode.tree.prepost;
 
-import hans.algorithm.pojo.TreeNode;
+import hans.common.pojo.TreeNode;
 import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * https://leetcode-cn.com/problems/same-tree/

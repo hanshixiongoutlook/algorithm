@@ -1,4 +1,4 @@
-package hans.algorithm.pojo;
+package hans.common.pojo;
 
 import java.util.Scanner;
 import java.util.Stack;

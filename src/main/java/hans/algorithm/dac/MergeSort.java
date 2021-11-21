@@ -1,6 +1,6 @@
 package hans.algorithm.dac;
 
-import hans.algorithm.utils.Logger;
+import hans.common.utils.Logger;
 import org.junit.Test;
 
 public class MergeSort {
@@ -14,7 +14,7 @@ public class MergeSort {
 	public void test() {
 		int[] arr = new int[]{1 ,9 ,8, 3, 4, 5, 6, 4};
 		divide(arr, 0, arr.length-1);
-		Logger.log2Json("result={}", arr);
+		Logger.log("result={}", arr);
 	}
 
 
@@ -63,6 +63,6 @@ public class MergeSort {
 		for (int i=low; i<=high; i++,index++) {
 			arr[i] = tmp[index];
 		}
-		Logger.log2Json("tmp={}, low={}, high={}", arr, low, high);
+		Logger.log("tmp={}, low={}, high={}", arr, low, high);
 	}
 }

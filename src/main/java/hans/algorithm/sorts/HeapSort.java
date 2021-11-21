@@ -1,8 +1,8 @@
 package hans.algorithm.sorts;
 
-import hans.algorithm.utils.Logger;
-import hans.algorithm.utils.PrintUtils;
-import hans.algorithm.utils.SortUtils;
+import hans.common.utils.Logger;
+import hans.common.utils.PrintUtils;
+import hans.common.utils.SortUtils;
 
 /**
  * 选择类

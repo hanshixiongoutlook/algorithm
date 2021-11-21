@@ -1,8 +1,8 @@
 package hans.leetcode.tree.preorder;
 
 
-import hans.algorithm.pojo.TreeNode;
-import hans.algorithm.utils.Logger;
+import hans.common.pojo.TreeNode;
+import hans.common.utils.Logger;
 import org.junit.Test;
 
 /**
@@ -15,7 +15,7 @@ public class Medium0222_CountCompleteTreeNodes {
     public void test() {
         TreeNode treeNode = TreeNode.buildTree(new Integer[]{1,2,3,5,4,6,7,8});
         treeNode.prettyPrint();
-        Logger.log2Json(countNodes(treeNode));
+        Logger.log(countNodes(treeNode));
 
     }
 

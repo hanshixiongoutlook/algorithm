@@ -1,7 +1,7 @@
 package hans.algorithm.sorts.demo;
 
 import com.alibaba.fastjson.JSONObject;
-import hans.algorithm.utils.Logger;
+import hans.common.utils.Logger;
 import org.junit.Test;
 
 public class Recurisive {

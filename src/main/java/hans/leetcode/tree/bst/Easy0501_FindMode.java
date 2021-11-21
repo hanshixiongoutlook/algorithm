@@ -2,8 +2,8 @@ package hans.leetcode.tree.bst;
 
 
 import com.alibaba.fastjson.JSONObject;
-import hans.algorithm.pojo.TreeNode;
-import hans.algorithm.utils.Logger;
+import hans.common.pojo.TreeNode;
+import hans.common.utils.Logger;
 import org.junit.Test;
 
 import java.util.*;

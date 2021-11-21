@@ -1,6 +1,4 @@
-package hans.algorithm.pojo;
-
-import java.util.List;
+package hans.common.pojo;
 
 public class ListNode {
     public Integer val;
