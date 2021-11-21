@@ -1,7 +1,5 @@
 package hans.leetcode.pojo;
 
-import hans.leetcode.tree.binary.serialize.Medium0341_Flatten_Nested_List_Iterator;
-
 import java.util.List;
 
 public class NestedInteger {

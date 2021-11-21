@@ -1,4 +1,4 @@
-package hans.leetcode.tree.binary.serialize;
+package hans.leetcode.tree.binary.design;
 
 
 import hans.algorithm.pojo.TreeNode;
@@ -14,14 +14,14 @@ public class Hard0297_SerializeAndDeserializeBinaryTree {
 
     @Test
     public void test() {
-//        TreeNode treeNode = TreeNode.buildTree(new Integer[]{1,2,-13,null,null,4,5});
-//        treeNode.prettyPrint();
-        TreeNode treeNode = new TreeNode(0);
-        TreeNode next = treeNode;
-        for (int i=1;i<5;i++) {
-            next.right = new TreeNode(i);
-            next = next.right;
-        }
+        TreeNode treeNode = TreeNode.buildTree(new Integer[]{1,2,-13,null,null,4,5});
+        treeNode.prettyPrint();
+//        TreeNode treeNode = new TreeNode(0);
+//        TreeNode next = treeNode;
+//        for (int i=1;i<5;i++) {
+//            next.right = new TreeNode(i);
+//            next = next.right;
+//        }
         Codec codec = new Codec();
 
         String str = codec.serialize(treeNode);
@@ -31,10 +31,52 @@ public class Hard0297_SerializeAndDeserializeBinaryTree {
     }
 
     /**
+     * 			执行耗时:11 ms,击败了75.87% 的Java用户
+     * 			内存消耗:40.2 MB,击败了79.99% 的Java用户
+     */
+    public class Codec {
+        /**
+         * @param root
+         * @return
+         */
+        public String serialize(TreeNode root) {
+            StringBuffer buffer = new StringBuffer();
+            if (root==null) {
+                buffer.append("#,");
+                return buffer.toString();
+            }
+            buffer.append(root.val).append(",");
+            buffer.append(serialize(root.left));
+            buffer.append(serialize(root.right));
+            return buffer.toString();
+        }
+        public TreeNode deserialize(String data) {
+            if (data==null||data.length()==0) {
+                return null;
+            }
+            List<String> list = new LinkedList<>(Arrays.asList(data.split(",")));
+            return deserialize(list);
+        }
+        public TreeNode deserialize(List<String> data) {
+            if (data.isEmpty()) {
+                return null;
+            }
+            if (data.get(0).equals("#")) {
+                data.remove(0);
+                return null;
+            }
+            Integer value = Integer.valueOf(data.remove(0));
+            TreeNode root = new TreeNode(value);
+            root.left = deserialize(data);
+            root.right = deserialize(data);
+            return root;
+        }
+    }
+    /**
      * 			执行耗时:7 ms,击败了96.03% 的Java用户
      * 			内存消耗:40.4 MB,击败了68.39% 的Java用户
      */
-    public class Codec {
+    public class Codec1 {
         /**
          * 序列化思路可参考 0606
          * @param root

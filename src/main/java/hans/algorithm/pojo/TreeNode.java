@@ -73,22 +73,25 @@ public class TreeNode {
         if (arr == null || arr.length == 0) {
             return null;
         }
-        TreeNode root = new TreeNode(arr[0], null, null, 0);
-        java.util.Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
-        while (!stack.isEmpty()) {
-            TreeNode curRoot = stack.pop();
-            int leftIndex = curRoot.index * 2 + 1;
-            int rightIndex = curRoot.index * 2 + 2;
-            if (leftIndex < arr.length && arr[leftIndex] != null) {
-                TreeNode left = new TreeNode(arr[leftIndex], null, null, leftIndex);
-                stack.push(left);
-                curRoot.left = left;
-            }
-            if (rightIndex < arr.length && arr[rightIndex] != null) {
-                TreeNode right = new TreeNode(arr[rightIndex], null, null, rightIndex);
-                stack.push(right);
-                curRoot.right = right;
+        TreeNode root = new TreeNode(arr[0]);
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        int i = 0;
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            int li = 2*i+1;
+            int ri = li+1;
+            if (node!=null) {
+                if (li< arr.length&&arr[li]!=null) {
+                    node.left = new TreeNode(arr[li]);
+                }
+                if (ri< arr.length&&arr[ri]!=null) {
+                    node.right = new TreeNode(arr[ri]);
+                }
+                queue.offer(node.left);
+                queue.offer(node.right);
+                i++;
             }
         }
         return root;

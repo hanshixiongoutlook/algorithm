@@ -1,8 +1,7 @@
-package hans.leetcode.tree.binary.serialize;
+package hans.leetcode.tree.binary.design;
 
 
 import hans.algorithm.pojo.TreeNode;
-import org.junit.Assert;
 import org.junit.Test;
 
 

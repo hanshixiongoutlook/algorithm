@@ -1,8 +1,6 @@
-package hans.leetcode.tree.binary.serialize;
+package hans.leetcode.tree.binary.design;
 
 
-import hans.algorithm.pojo.TreeNode;
-import hans.algorithm.utils.Logger;
 import hans.leetcode.pojo.NestedInteger;
 import org.junit.Test;
 
