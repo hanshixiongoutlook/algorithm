@@ -44,31 +44,6 @@ public class TreeNode {
      * @param arr
      * @return
      */
-    public static TreeNode buildTree(int[] arr) {
-        if (arr == null || arr.length == 0) {
-            return null;
-        }
-        TreeNode root = new TreeNode(arr[0], null, null, 0);
-        java.util.Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
-        while (!stack.isEmpty()) {
-            TreeNode curRoot = stack.pop();
-            int leftIndex = curRoot.index * 2 + 1;
-            int rightIndex = curRoot.index * 2 + 2;
-            if (leftIndex < arr.length) {
-                TreeNode left = new TreeNode(arr[leftIndex], null, null, leftIndex);
-                stack.push(left);
-                curRoot.left = left;
-            }
-            if (rightIndex < arr.length) {
-                TreeNode right = new TreeNode(arr[rightIndex], null, null, rightIndex);
-                stack.push(right);
-                curRoot.right = right;
-            }
-        }
-        return root;
-    }
-
     public static TreeNode buildTree(Integer[] arr) {
         if (arr == null || arr.length == 0) {
             return null;
@@ -76,7 +51,6 @@ public class TreeNode {
         TreeNode root = new TreeNode(arr[0]);
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
-
         int i = 0;
         while (!queue.isEmpty()) {
             TreeNode node = queue.poll();
@@ -106,7 +80,7 @@ public class TreeNode {
         Arrays.sort(arr);
         return sortedArrayToBST(arr, 0, arr.length-1);
     }
-    public static TreeNode sortedArrayToBST(int[] nums, int start, int end) {
+    private static TreeNode sortedArrayToBST(int[] nums, int start, int end) {
         if (start>end) {
             return null;
         }

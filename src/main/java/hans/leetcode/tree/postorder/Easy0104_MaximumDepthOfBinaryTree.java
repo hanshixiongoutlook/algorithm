@@ -9,7 +9,7 @@ import org.junit.Test;
 public class Easy0104_MaximumDepthOfBinaryTree {
     @Test
     public void test() {
-        TreeNode tree1 = TreeNode.buildTree(new int[]{1,2,2,3,4,4,3});
+        TreeNode tree1 = TreeNode.buildTree(new Integer[]{1,2,2,3,4,4,3});
         int treeNode = maxDepth(tree1);
 
         System.out.println(treeNode);

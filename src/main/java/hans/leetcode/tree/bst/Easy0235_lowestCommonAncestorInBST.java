@@ -10,7 +10,7 @@ public class Easy0235_lowestCommonAncestorInBST {
 
     @Test
     public void test() {
-        int[] arr = new int[]{3,1,4,Integer.MIN_VALUE,2};
+        Integer[] arr = new Integer[]{3,1,4,Integer.MIN_VALUE,2};
         TreeNode integerTreeNode = TreeNode.buildTree(arr);
         integerTreeNode.prettyPrint();
         TreeNode treeNode = this.lowestCommonAncestor(integerTreeNode, new TreeNode(2), new TreeNode(3));

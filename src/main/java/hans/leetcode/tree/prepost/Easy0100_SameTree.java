@@ -9,8 +9,8 @@ import org.junit.Test;
 public class Easy0100_SameTree {
     @Test
     public void test() {
-        TreeNode tree1 = TreeNode.buildTree(new int[]{1, 2, 3});
-        TreeNode tree2 = TreeNode.buildTree(new int[]{1, 2, 4});
+        TreeNode tree1 = TreeNode.buildTree(new Integer[]{1, 2, 3});
+        TreeNode tree2 = TreeNode.buildTree(new Integer[]{1, 2, 4});
         boolean treeNode = isSameTree(tree1, tree2);
 
         System.out.println(treeNode);
