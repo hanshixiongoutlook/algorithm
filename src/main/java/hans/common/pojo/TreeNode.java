@@ -2,7 +2,6 @@ package hans.common.pojo;
 
 import hans.common.utils.Logger;
 
-import java.util.Stack;
 import java.util.*;
 
 /**
@@ -12,7 +11,6 @@ public class TreeNode {
     public Integer val;
     public TreeNode left;
     public TreeNode right;
-    public int index;
 
     public TreeNode() {
     }
@@ -25,13 +23,6 @@ public class TreeNode {
         this.val = val;
         this.left = left;
         this.right = right;
-    }
-
-    public TreeNode(Integer value, TreeNode left, TreeNode right, int index) {
-        this.val = value;
-        this.left = left;
-        this.right = right;
-        this.index = index;
     }
 
     /**
