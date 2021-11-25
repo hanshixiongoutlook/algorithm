@@ -3,41 +3,41 @@ package hans.common.pojo;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class Node {
-    public Node left;
-    public Node right;
-    public Node next;
+public class LinkedTreeNode {
+    public LinkedTreeNode left;
+    public LinkedTreeNode right;
+    public LinkedTreeNode next;
     public Integer val;
     public int index;
 
-    public Node() {
+    public LinkedTreeNode() {
     }
 
-    public Node(Integer value, Node left, Node right, int index) {
+    public LinkedTreeNode(Integer value, LinkedTreeNode left, LinkedTreeNode right, int index) {
         this.val = value;
         this.left = left;
         this.right = right;
         this.index = index;
     }
 
-    public static Node buildTreeWithoutConnect(Integer[] arr) {
+    public static LinkedTreeNode buildTreeWithoutConnect(Integer[] arr) {
         if (arr == null || arr.length == 0) {
             return null;
         }
-        Node root = new Node(arr[0], null, null, 0);
-        java.util.Stack<Node> stack = new Stack<>();
+        LinkedTreeNode root = new LinkedTreeNode(arr[0], null, null, 0);
+        java.util.Stack<LinkedTreeNode> stack = new Stack<>();
         stack.push(root);
         while (!stack.isEmpty()) {
-            Node curRoot = stack.pop();
+            LinkedTreeNode curRoot = stack.pop();
             int leftIndex = curRoot.index * 2 + 1;
             int rightIndex = curRoot.index * 2 + 2;
             if (leftIndex < arr.length && arr[leftIndex] != null) {
-                Node left = new Node(arr[leftIndex], null, null, leftIndex);
+                LinkedTreeNode left = new LinkedTreeNode(arr[leftIndex], null, null, leftIndex);
                 stack.push(left);
                 curRoot.left = left;
             }
             if (rightIndex < arr.length && arr[rightIndex] != null) {
-                Node right = new Node(arr[rightIndex], null, null, rightIndex);
+                LinkedTreeNode right = new LinkedTreeNode(arr[rightIndex], null, null, rightIndex);
                 stack.push(right);
                 curRoot.right = right;
             }
@@ -61,7 +61,7 @@ public class Node {
         System.out.println(prettyPrint(this, 1, height));
     }
 
-    private StringBuilder prettyPrint(Node root, int currentHeight, int totalHeight) {
+    private StringBuilder prettyPrint(LinkedTreeNode root, int currentHeight, int totalHeight) {
         StringBuilder sb = new StringBuilder();
         int spaces = getSpaceCount(totalHeight - currentHeight + 1);
         if (root == null) {
@@ -126,7 +126,7 @@ public class Node {
         return depth(this);
     }
 
-    private int depth(Node node) {
+    private int depth(LinkedTreeNode node) {
         if (node == null) {
             return 0;
         }

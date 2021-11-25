@@ -1,7 +1,7 @@
 package hans.leetcode.tree.level;
 
 
-import hans.common.pojo.Node;
+import hans.common.pojo.LinkedTreeNode;
 import org.junit.Test;
 
 import java.util.LinkedList;
@@ -12,7 +12,7 @@ public class M_0116_PoputatingNextRightPointersInEachNode {
 
     @Test
     public void test() {
-        Node treeNode = Node.buildTreeWithoutConnect(new Integer[]{1,2,3,4,5,6,7});
+        LinkedTreeNode treeNode = LinkedTreeNode.buildTreeWithoutConnect(new Integer[]{1,2,3,4,5,6,7});
         treeNode.prettyPrint();
         connect(treeNode);
         treeNode.prettyPrint();
@@ -24,13 +24,13 @@ public class M_0116_PoputatingNextRightPointersInEachNode {
      * @param root
      * @return
      */
-    public Node connect(Node root) {
+    public LinkedTreeNode connect(LinkedTreeNode root) {
         if (root==null) {
             return root;
         }
-        Node leftMost = root;
+        LinkedTreeNode leftMost = root;
         while(leftMost.left!=null) {
-            Node head = leftMost;
+            LinkedTreeNode head = leftMost;
             while(head!=null) {
                 head.left.next = head.right;
                 if (head.next!=null) {
@@ -46,16 +46,16 @@ public class M_0116_PoputatingNextRightPointersInEachNode {
      * 			Runtime:2 ms, faster than 31.08% of Java online submissions.
      * 			Memory Usage:38 MB, less than 61.17% of Java online submissions.
      */
-    public Node connect2(Node root) {
+    public LinkedTreeNode connect2(LinkedTreeNode root) {
         if (root==null) {
             return root;
         }
-        Queue<Node> queue = new LinkedList<>();
+        Queue<LinkedTreeNode> queue = new LinkedList<>();
         queue.offer(root);
         while(!queue.isEmpty()) {
             int count = queue.size();
             for (int i=0; i<count;i++) {
-                Node node = queue.poll();
+                LinkedTreeNode node = queue.poll();
                 if (i<count-1) {
                     node.next = queue.peek();
                 }

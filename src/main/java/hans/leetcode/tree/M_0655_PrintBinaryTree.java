@@ -8,7 +8,7 @@ import org.junit.Test;
 import java.util.*;
 
 /**
- *
+ * 分治法
  */
 public class M_0655_PrintBinaryTree {
 
