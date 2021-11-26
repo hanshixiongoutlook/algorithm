@@ -205,6 +205,7 @@ public class TreeNode {
     }
     private void preoderPrint(TreeNode treeNode) {
         if (treeNode==null) {
+            Logger.logWithoutEnter("#,");
             return;
         }
         Logger.logWithoutEnter(treeNode.val+",");
