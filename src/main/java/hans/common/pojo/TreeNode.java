@@ -1,5 +1,6 @@
 package hans.common.pojo;
 
+import com.alibaba.fastjson.JSONObject;
 import hans.common.utils.Logger;
 
 import java.util.*;
@@ -104,6 +105,9 @@ public class TreeNode {
      * </pre>
      */
     public void arrayPrint() {
+        Logger.log(this.getArray());
+    }
+    public List<Integer> getArray() {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(this);
         Deque<Integer> list = new LinkedList<>();
@@ -120,9 +124,8 @@ public class TreeNode {
         while (list.getLast()==null) {
             list.pollLast();
         }
-        Logger.log(list);
+        return new ArrayList<>(list);
     }
-
 
     /**
      * print tree with pretty constructure</br>
@@ -237,5 +240,10 @@ public class TreeNode {
         postoderPrint(treeNode.left);
         postoderPrint(treeNode.right);
         Logger.logWithoutEnter(treeNode.val+",");
+    }
+
+    @Override
+    public String toString() {
+        return JSONObject.toJSONString(this.getArray());
     }
 }
