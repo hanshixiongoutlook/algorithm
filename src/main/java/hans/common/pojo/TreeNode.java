@@ -242,8 +242,4 @@ public class TreeNode {
         Logger.logWithoutEnter(treeNode.val+",");
     }
 
-    @Override
-    public String toString() {
-        return JSONObject.toJSONString(this.getArray());
-    }
 }
