@@ -2,6 +2,7 @@ package hans.common.pojo;
 
 import com.alibaba.fastjson.JSONObject;
 import hans.common.utils.Logger;
+import jdk.nashorn.internal.scripts.JO;
 
 import java.util.*;
 
@@ -242,4 +243,13 @@ public class TreeNode {
         Logger.logWithoutEnter(treeNode.val+",");
     }
 
+    public boolean overrideToString = true;
+    @Override
+    public String toString() {
+        if (overrideToString) {
+            return JSONObject.toJSONString(getArray());
+        } else {
+            return super.toString();
+        }
+    }
 }
