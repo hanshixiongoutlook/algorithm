@@ -18,10 +18,17 @@ public class M_1361_ValidateBinaryTreeNodes {
     public void test() {
 //        1,-1,3,-1    2,-1,-1,-1
 //        1,-1,3,-1    2,3,-1,-1
-        boolean b = validateBinaryTreeNodes(2, new int[]{1, 0}, new int[]{-1,-1});
+        boolean b = validateBinaryTreeNodes(4, new int[]{-1,-1,0,-1}, new int[]{3,-1,1,-1});
         Logger.log(b);
     }
 
+    /**
+     * TODO ???
+     * @param n
+     * @param leftChild
+     * @param rightChild
+     * @return
+     */
     public boolean validateBinaryTreeNodes(int n, int[] leftChild, int[] rightChild) {
 
         Queue<TreeNode> queue = new LinkedList<>();
