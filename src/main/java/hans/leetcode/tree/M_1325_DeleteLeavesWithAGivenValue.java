@@ -13,7 +13,6 @@ public class M_1325_DeleteLeavesWithAGivenValue {
     @Test
     public void test() {
         TreeNode treeNode = TreeNode.buildTree(new Integer[]{2,5,2,7,null,null,null,null,2});
-        treeNode.overrideToString = false;
         treeNode.prettyPrint();
         TreeNode treeNodes = removeLeafNodes(treeNode, 2);
 

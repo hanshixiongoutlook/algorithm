@@ -243,13 +243,9 @@ public class TreeNode {
         Logger.logWithoutEnter(treeNode.val+",");
     }
 
-    public boolean overrideToString = true;
     @Override
     public String toString() {
-        if (overrideToString) {
-            return JSONObject.toJSONString(getArray());
-        } else {
-            return super.toString();
-        }
+        return this.val+"_"+super.toString();
+//        return JSONObject.toJSONString(getArray());
     }
 }

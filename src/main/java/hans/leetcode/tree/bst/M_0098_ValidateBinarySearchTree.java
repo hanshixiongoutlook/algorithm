@@ -19,6 +19,12 @@ public class M_0098_ValidateBinarySearchTree {
         boolean mode = this.isValidBST(treeNode);
         Logger.log(mode);
     }
+
+    /**
+     * TODO important
+     * @param root
+     * @return
+     */
     public boolean isValidBST(TreeNode root) {
         if (root==null) {
             return false;
