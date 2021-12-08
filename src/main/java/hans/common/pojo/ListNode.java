@@ -26,4 +26,20 @@ public class ListNode {
         }
         return head;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder buf = new StringBuilder();
+        buf.append("[");
+        ListNode next = this;
+        while(next!=null) {
+            buf.append(next.val);
+            if (next.next!=null) {
+                buf.append(",");
+            }
+            next = next.next;
+        }
+        buf.append("]");
+        return buf.toString();
+    }
 }
