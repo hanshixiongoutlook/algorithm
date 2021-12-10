@@ -5,6 +5,8 @@ import hans.common.pojo.TreeNode;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -20,6 +22,8 @@ public class M_0099_RecoverBinarySearchTree {
         this.recoverTree(build);
         build.prettyPrint();
         build.inoderPrint();
+        List<Integer> list = new LinkedList<>();
+        list.iterator()
     }
 
     /**
