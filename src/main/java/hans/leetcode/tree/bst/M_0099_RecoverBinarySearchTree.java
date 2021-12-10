@@ -22,8 +22,6 @@ public class M_0099_RecoverBinarySearchTree {
         this.recoverTree(build);
         build.prettyPrint();
         build.inoderPrint();
-        List<Integer> list = new LinkedList<>();
-        list.iterator()
     }
 
     /**
