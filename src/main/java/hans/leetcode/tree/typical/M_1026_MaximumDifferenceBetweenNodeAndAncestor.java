@@ -5,8 +5,7 @@ import hans.common.pojo.TreeNode;
 import hans.common.utils.Logger;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  */
@@ -14,7 +13,7 @@ public class M_1026_MaximumDifferenceBetweenNodeAndAncestor {
 
     @Test
     public void test() {
-        TreeNode treeNode1 = TreeNode.buildTree(new Integer[]{8,3,10,1,6,null,14,null,null,4,7,13});
+        TreeNode treeNode1 = TreeNode.buildTree(new Integer[]{2,4,3,1,null,0,5,null,6,null,null,null,7});
         treeNode1.prettyPrint();
 
         int i = maxAncestorDiff(treeNode1);
@@ -29,25 +28,20 @@ public class M_1026_MaximumDifferenceBetweenNodeAndAncestor {
      */
     int max = -1;
     public int maxAncestorDiff(TreeNode root) {
-        dfs(root,new ArrayList<>());
+        dfs(root,new LinkedList<>());
         return max;
     }
-    public void dfs(TreeNode root, List<Integer> list) {
+    public void dfs(TreeNode root, Deque<Integer> deque) {
         if (root==null) {
             return;
         }
-        List<Integer> list2 = new ArrayList<>(list.size()+1);
-        list2.addAll(list);
-        list2.add(root.val);
-        if (root.left==null&&root.right==null) {
-            for (int i=0; i<list2.size()-1; i++) {
-                for (int j=(i+1);j<list2.size(); j++) {
-                    int diff = Math.abs(list2.get(i)-list2.get(j));
-                    max = Math.max(max, diff);
-                }
-            }
+        for (int i: deque) {
+            int diff = Math.abs(i-root.val);
+            max = Math.max(max, diff);
         }
-        dfs(root.left, list2);
-        dfs(root.right, list2);
+        deque.offer(root.val);
+        dfs(root.left, deque);
+        dfs(root.right, deque);
+        deque.removeLast();
     }
 }
