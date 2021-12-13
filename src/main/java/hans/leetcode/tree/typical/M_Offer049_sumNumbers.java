@@ -1,4 +1,4 @@
-package hans.leetcode.tree;
+package hans.leetcode.tree.typical;
 
 
 import hans.common.pojo.TreeNode;
