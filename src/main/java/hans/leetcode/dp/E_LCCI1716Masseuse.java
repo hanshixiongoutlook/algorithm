@@ -6,7 +6,7 @@ import org.junit.Test;
 public class E_LCCI1716Masseuse {
     @Test
     public void test() {
-        int num = massage(new int[]{1, 2, 3, 4, 5});
+        int num = massage(new int[]{1, 10, 3, 5, 7});
         Logger.log(num);
     }
 
