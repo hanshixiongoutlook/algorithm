@@ -1,10 +1,8 @@
-package hans.leetcode.dp;
+package hans.leetcode.dp.typical.bit;
 
 import hans.common.utils.Logger;
 import org.junit.Test;
 
-import java.util.LinkedList;
-import java.util.List;
 
 public class E_LCCI0503_ReverseBits {
     @Test
