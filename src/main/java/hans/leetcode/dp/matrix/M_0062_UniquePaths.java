@@ -1,4 +1,4 @@
-package hans.leetcode.dp.typical.matrix;
+package hans.leetcode.dp.matrix;
 
 import hans.common.utils.Logger;
 import org.junit.Test;

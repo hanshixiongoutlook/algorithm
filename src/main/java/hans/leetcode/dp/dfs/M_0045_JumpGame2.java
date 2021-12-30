@@ -1,4 +1,4 @@
-package hans.leetcode.dp.typical.dfs;
+package hans.leetcode.dp.dfs;
 
 import hans.common.utils.Logger;
 import org.junit.Test;

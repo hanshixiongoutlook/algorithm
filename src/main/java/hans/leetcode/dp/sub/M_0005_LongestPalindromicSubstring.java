@@ -1,9 +1,9 @@
-package hans.leetcode.dp;
+package hans.leetcode.dp.sub;
 
 import hans.common.utils.Logger;
 import org.junit.Test;
 
-public class M_0010_LongestPalindromicSubstring {
+public class M_0005_LongestPalindromicSubstring {
     @Test
     public void test() {
         String num = longestPalindrome("abbv");
