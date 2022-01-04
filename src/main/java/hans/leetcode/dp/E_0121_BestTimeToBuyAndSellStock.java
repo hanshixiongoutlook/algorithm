@@ -25,13 +25,13 @@ public class E_0121_BestTimeToBuyAndSellStock {
             return 0;
         }
         int min = prices[0];
-        int max = 0;
+        int maxProfit = 0;
         for (int i=1; i<prices.length; i++) {
             int profit = prices[i] - min;
-            max = Math.max(profit, max);
+            maxProfit = Math.max(profit, maxProfit);
             min = Math.min(min, prices[i]);
         }
-        return max;
+        return maxProfit;
     }
 
 }
