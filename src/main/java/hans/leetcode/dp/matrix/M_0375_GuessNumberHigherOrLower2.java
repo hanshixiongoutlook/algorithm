@@ -148,7 +148,7 @@ public class M_0375_GuessNumberHigherOrLower2 {
                             dp[x][y] = p+max(dp[x][p-1], dp[p+1][y])
                         else
                             dp[x][y] = min(dp[x][y], p+max(dp[x][p-1], dp[p+1][y]))
-
+        return dp[1][n]
          */
         int[][] dp = new int[n+1][n+1];
         for (int y=2; y<=n; y++) {
