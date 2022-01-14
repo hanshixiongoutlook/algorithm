@@ -1,4 +1,4 @@
-package hans.leetcode.tree.bst;
+package hans.leetcode.tree.easy;
 
 
 import hans.common.pojo.TreeNode;
@@ -8,7 +8,7 @@ import org.junit.Test;
 /**
  * 同783
  */
-public class E_0530_getMinimumDifference {
+public class E_0530_MinimumAbsoluteDifferenceInBST {
 
     @Test
     public void test() {
@@ -26,13 +26,13 @@ public class E_0530_getMinimumDifference {
         if (root.left!=null) {
             int max = getMax(root.left);
             diff = Math.min(Math.abs(root.val-max), diff);
-            getMinimumDifference(root.left);
         }
         if (root.right!=null) {
             int min = getMin(root.right);
             diff = Math.min(Math.abs(root.val-min), diff);
-            getMinimumDifference(root.right);
         }
+        getMinimumDifference(root.left);
+        getMinimumDifference(root.right);
         return diff;
     }
     public int getMin(TreeNode root) {
