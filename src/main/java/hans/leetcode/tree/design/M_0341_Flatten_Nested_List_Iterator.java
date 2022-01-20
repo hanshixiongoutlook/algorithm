@@ -1,7 +1,7 @@
 package hans.leetcode.tree.design;
 
 
-import hans.leetcode.pojo.NestedInteger;
+import hans.leetcode.dp.subsequence.pojo.NestedInteger;
 import org.junit.Test;
 
 import java.util.ArrayList;
