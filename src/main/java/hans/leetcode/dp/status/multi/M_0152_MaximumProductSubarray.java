@@ -1,4 +1,4 @@
-package hans.leetcode.dp.status;
+package hans.leetcode.dp.status.multi;
 
 import hans.common.utils.Logger;
 import org.junit.Test;
@@ -90,7 +90,13 @@ public class M_0152_MaximumProductSubarray {
         if (nums.length<1) {
             return 0;
         }
+        // 连续乘积
         int f0 = nums[0];
+        // f1和f0同号时，f1=nums[i]，因为nums[i]可能是最大值
+        // 比如f0=f1=-8,nums[i]=100，
+        // 此时代表连续乘积的f0会继续和nums[i]乘就成了-800，如果数组就此终止，最大值应该是100，
+        // 因此f0和f1同号时，f1自动后移
+
         int f1 = nums[0];
         int max = nums[0];
 

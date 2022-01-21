@@ -1,4 +1,4 @@
-package hans.leetcode.dp.status;
+package hans.leetcode.dp.status.multi;
 
 import hans.common.utils.Logger;
 import org.junit.Test;
