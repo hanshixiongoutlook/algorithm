@@ -1,4 +1,4 @@
-package hans.leetcode;
+package hans.leetcode.dp;
 
 import hans.common.utils.Logger;
 import org.junit.Test;

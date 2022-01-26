@@ -57,11 +57,11 @@ public class M_0416_PartitionEqualSubsetSum {
      */
     public boolean canPartition(int[] nums) {
         int sum = Arrays.stream(nums).sum();
+        int subSum = sum/2;
         // 和为奇数，肯定分不出来
-        if (sum%2==1) {
+        if (sum%2==1||Arrays.stream(nums).anyMatch(ele->ele>subSum)) {
             return false;
         }
-        int subSum = sum/2;
         Set<Integer> set = new HashSet<>();
         set.add(0);
         set.add(nums[0]);
@@ -72,7 +72,9 @@ public class M_0416_PartitionEqualSubsetSum {
                 if (csum==subSum||nsum==subSum) {
                     return true;
                 }
-                subSet.add(nsum);
+                if (csum<subSum) {
+                    subSet.add(nsum);
+                }
             }
             set.addAll(subSet);
         }
