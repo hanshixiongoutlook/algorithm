@@ -1,4 +1,4 @@
-package hans.leetcode.dp;
+package hans.leetcode.dp.game;
 
 import hans.common.utils.Logger;
 import org.junit.Test;
@@ -116,10 +116,14 @@ public class M_0464_CanIWin {
     public boolean canIWin2(int maxChoosableInteger, int desiredTotal) {
         if (maxChoosableInteger >= desiredTotal) return true;
         if ((1 + maxChoosableInteger) * maxChoosableInteger / 2 < desiredTotal) return false;
-        return dfs2(0, desiredTotal, maxChoosableInteger, true);
+        Boolean[] dp = new Boolean[1<<maxChoosableInteger];
+        return dfs2(0, desiredTotal, maxChoosableInteger, true, dp);
     }
 
-    private boolean dfs2(int state, int desired, int max, boolean turn) {
+    private boolean dfs2(int state, int desired, int max, boolean turn, Boolean[] dp) {
+        if (dp[state]!=null) {
+            return dp[state];
+        }
         boolean win = !turn;
         // 选择数
         for (int i = max; i > 0; i--) {
@@ -128,11 +132,13 @@ public class M_0464_CanIWin {
             if (desired <= i) {
                 return turn;
             }
-            boolean result = dfs2(state | (1 << (i - 1)), desired - i, max, !turn);
+            boolean result = dfs2(state | (1 << (i - 1)), desired - i, max, !turn, dp);
             if (!turn&&!result) {
+                dp[state | (1 << (i - 1))] = false;
                 win = false;
             }
             if (turn&&result) {
+                dp[state | (1 << (i - 1))] = true;
                 win = true;
             }
 
