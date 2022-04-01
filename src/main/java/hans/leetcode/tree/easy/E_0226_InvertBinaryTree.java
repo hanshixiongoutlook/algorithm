@@ -10,7 +10,7 @@ import org.junit.Test;
 public class E_0226_InvertBinaryTree {
     @Test
     public void test() {
-        TreeNode treeNode = TreeNode.buildTree(new Integer[]{1,2,3});
+        TreeNode treeNode = TreeNode.buildTree(new Integer[]{1,2,3,4,5,6,7});
         treeNode.prettyPrint();
         this.invertTree(treeNode);
         treeNode.prettyPrint();
