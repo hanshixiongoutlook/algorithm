@@ -5,34 +5,41 @@ import hans.common.pojo.TreeNode;
 import hans.common.utils.Logger;
 import org.junit.Test;
 
+import java.util.Objects;
+
 
 public class E_0965_UnivaluedBinaryTree {
 
     @Test
     public void test() {
-        TreeNode treeNode = TreeNode.buildTree(new Integer[]{2,2,2,2,2});
+        TreeNode treeNode = TreeNode.buildTree(new Integer[]{3,2,2,2,2});
         treeNode.prettyPrint();
-        boolean result = this.isUnivalTree(treeNode);
+        boolean result2 = this.isUnivalTree(treeNode);
+
         // [3.00000,14.50000,11.00000]
-        Logger.log(result);
+        Logger.log(result2);
     }
+
+    Integer standard;
+
+    /**
+     * 		Runtime:0 ms, faster than 100.00% of Java online submissions.
+     * 			Memory Usage:39.1 MB, less than 18.99% of Java online submissions.
+     * @param root
+     * @return
+     */
     public boolean isUnivalTree(TreeNode root) {
         if (root==null) {
             return true;
         }
-        int curValue = root.val;
-        if (root.left!=null&&curValue!=root.left.val) {
+        if (standard==null) {
+            standard=root.val;
+        }
+        if (!Objects.equals(root.val,standard)) {
             return false;
         }
-        if (root.right!=null&&curValue!=root.right.val) {
-            return false;
-        }
-        boolean left = isUnivalTree(root.left);
-        if (!left) {
-            return left;
-        }
-        boolean right = isUnivalTree(root.right);
-        return right;
+        return isUnivalTree(root.left)&& isUnivalTree(root.right);
     }
+
 
 }

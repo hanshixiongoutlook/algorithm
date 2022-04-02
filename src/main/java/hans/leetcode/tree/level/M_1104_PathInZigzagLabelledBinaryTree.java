@@ -1,23 +1,70 @@
 package hans.leetcode.tree.level;
 
 
-import hans.common.pojo.TreeNode;
 import hans.common.utils.Logger;
 import org.junit.Test;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
- *
- * 同 103
- *
+ In an infinite binary tree where every node has two children, the nodes are
+ labelled in row order.
+
+ In the odd numbered rows (ie., the first, third, fifth,...), the labelling is
+ left to right, while in the even numbered rows (second, fourth, sixth,...), the
+ labelling is right to left.
+
+
+
+ Given the label of a node in this tree, return the labels in the path from the
+ root of the tree to the node with that label.
+
+
+ Example 1:
+
+
+ Input: label = 14
+ Output: [1,3,4,14]
+
+
+ Example 2:
+
+
+ Input: label = 26
+ Output: [1,2,6,10,26]
+
+
+
+ Constraints:
+
+
+ 1 <= label <= 10^6
+
+ Related Topics 树 数学 二叉树 👍 172 👎 0
+
  */
 public class M_1104_PathInZigzagLabelledBinaryTree {
 
     @Test
     public void test() {
-        Logger.log(Math.pow(2, Math.sqrt(26)+1));
-        Logger.log(pathInZigZagTree(2));
+        int a = 9;
+        int c = 0;
+        while(a!=0) {
+            a=a>>1;
+            c++;
+        }
+        boolean isReverse = c%2==0;
+        int levelTotal = (int)Math.pow(2, c-1);
+        int start = (int)Math.pow(2, c)-1-levelTotal;
+        int end = (int)Math.pow(2, c)-1;
+
+
+        Logger.log(a+".."+c);
+        Logger.log(pathInZigZagTree(5));
+    }
+    public List<Integer> pathInZigZagTree2(int label) {
+        return null;
     }
 
     public List<Integer> pathInZigZagTree(int label) {
