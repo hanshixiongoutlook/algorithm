@@ -14,13 +14,38 @@ public class E_LCOF0068_lowestCommonAncestorBinary {
     public void test() {
 //        1,2,2,3,3,null,null,4,4
         // 3,9,20,null,null,15,7
-        TreeNode treeNode = TreeNode.buildTree(new Integer[]{3,5,1,6,2,0,8,null,null,7,4});
+        TreeNode treeNode = TreeNode.buildTree(new Integer[]{6,2,8,0,4,7,9,null,null,3,5});
         treeNode.prettyPrint();
 
-        TreeNode result = this.lowestCommonAncestor(treeNode, new TreeNode(8), new TreeNode(4));
+        TreeNode result = this.lowestCommonAncestor(treeNode, new TreeNode(2), new TreeNode(4));
         Logger.log(result.val);
+        TreeNode result2 = this.lowestCommonAncestor2(treeNode, new TreeNode(2), new TreeNode(4));
+        Logger.log(result2.val);
     }
-
+    public TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
+        if (root==null) {
+            return null;
+        }
+        if (root.val==p.val||root.val==q.val) {
+            return root;
+        }
+        int left = find2(root.left, p, q);
+        if (left==1) {
+            return root;
+        } else if (left==0) {
+            return lowestCommonAncestor2(root.right, p, q);
+        }
+        return lowestCommonAncestor2(root.left, p, q);
+    }
+    public int find2(TreeNode root, TreeNode p, TreeNode q) {
+        if (root==null) {
+            return 0;
+        }
+        if (root.val==p.val || root.val==q.val) {
+            return find2(root.left,p,q)+find2(root.right,p,q)+1;
+        }
+        return find2(root.left,p,q)+find2(root.right,p,q);
+    }
     /**
      * 			Runtime:6 ms, faster than 100.00% of Java online submissions.
      * 			Memory Usage:40.6 MB, less than 37.35% of Java online submissions.
