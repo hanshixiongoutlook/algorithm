@@ -1,4 +1,4 @@
-package hans.leetcode.tree.bst.operate;
+package hans.leetcode.tree.operate;
 
 import hans.common.pojo.TreeNode;
 import org.junit.Test;

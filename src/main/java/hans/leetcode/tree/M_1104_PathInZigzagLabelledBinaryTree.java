@@ -1,4 +1,4 @@
-package hans.leetcode.tree.path;
+package hans.leetcode.tree;
 
 
 import org.junit.Test;
