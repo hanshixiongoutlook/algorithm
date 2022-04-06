@@ -12,7 +12,7 @@ public class M_0687_LongestUnivaluePath {
 
     @Test
     public void test() {
-        TreeNode treeNode = TreeNode.buildTree(new Integer[]{5,5,5});
+        TreeNode treeNode = TreeNode.buildTree(new Integer[]{4,4,5,4,4,5});
         treeNode.prettyPrint();
         int i = longestUnivaluePath(treeNode);
         Logger.log(i);
