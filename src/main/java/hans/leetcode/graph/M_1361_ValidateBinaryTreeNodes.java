@@ -1,4 +1,4 @@
-package hans.leetcode.tree;
+package hans.leetcode.graph;
 
 
 import hans.common.pojo.TreeNode;
@@ -24,6 +24,7 @@ public class M_1361_ValidateBinaryTreeNodes {
 
     /**
      * TODO ???
+     * 图的联通性判断
      * @param n
      * @param leftChild
      * @param rightChild
