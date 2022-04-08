@@ -17,7 +17,7 @@ public class M_0538_ConvertBSTToGreaterTree {
 
     @Test
     public void test() {
-        TreeNode treeNode = TreeNode.buildSearchTree(new int[]{3,1,4,5,2});
+        TreeNode treeNode = TreeNode.buildTree(new Integer[]{4,1,6,0,2,5,7,null,null,null,3,null,null,null,8});
         treeNode.prettyPrint();
         convertBST(treeNode);
         treeNode.prettyPrint();
