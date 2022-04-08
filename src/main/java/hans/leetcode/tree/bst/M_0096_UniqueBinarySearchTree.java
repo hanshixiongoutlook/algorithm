@@ -19,8 +19,8 @@ public class M_0096_UniqueBinarySearchTree {
             return 0;
         }
         memo = new int[n+1][n+1];
-        int build = this.build(1, n);
-        return build;
+        this.build(1, n);
+        return memo[1][n];
     }
 
     public int build(int start, int end) {
