@@ -5,6 +5,7 @@ import hans.common.pojo.TreeNode;
 import org.junit.Test;
 
 /**
+ * 和538相同，累加树
  */
 public class M_1038_BinarySearchTreeToGreaterSumTree {
 

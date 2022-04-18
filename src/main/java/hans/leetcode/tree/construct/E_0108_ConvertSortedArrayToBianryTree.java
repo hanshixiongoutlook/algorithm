@@ -12,15 +12,9 @@ public class E_0108_ConvertSortedArrayToBianryTree {
     public void test() {
         TreeNode treeNode = sortedArrayToBST(new int[]{-10,-3,0,5,9});
 
-        System.out.println(treeNode);
+        treeNode.prettyPrint();
     }
     public TreeNode sortedArrayToBST(int[] nums) {
-        if (nums.length==0) {
-            return null;
-        }
-        if (nums.length==1) {
-            return new TreeNode(nums[0]);
-        }
         return buildTree(nums, 0, nums.length-1);
     }
 

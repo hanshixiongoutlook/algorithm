@@ -1,4 +1,4 @@
-package hans.leetcode.tree.design;
+package hans.leetcode.tree.construct;
 
 
 import hans.common.pojo.TreeNode;
@@ -25,7 +25,9 @@ public class E_0606_ConstructStringFromBinaryTree {
             stringBuffer.append("(");
             stringBuffer.append(tree2str(root.left));
             stringBuffer.append(")");
-        } else if (root.right!=null) {
+        }
+        // 左树空，但右树不为空，需要把左侧填充上()
+        if (root.left==null && root.right!=null) {
             stringBuffer.append("(");
             stringBuffer.append(")");
         }

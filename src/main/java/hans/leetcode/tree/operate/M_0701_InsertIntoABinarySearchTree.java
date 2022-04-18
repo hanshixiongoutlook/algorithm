@@ -121,19 +121,9 @@ public class M_0701_InsertIntoABinarySearchTree {
             return new TreeNode(val);
         }
         if (root.val>val) {
-            if (root.left==null) {
-                TreeNode node = new TreeNode(val);
-                root.left = node;
-            } else {
-                root.left = insertIntoBST(root.left, val);
-            }
+            root.left = insertIntoBST(root.left, val);
         } else if (root.val<val) {
-            if (root.right==null) {
-                TreeNode node = new TreeNode(val);
-                root.right = node;
-            } else {
-                root.right = insertIntoBST(root.right, val);
-            }
+            root.right = insertIntoBST(root.right, val);
         }
         return root;
 

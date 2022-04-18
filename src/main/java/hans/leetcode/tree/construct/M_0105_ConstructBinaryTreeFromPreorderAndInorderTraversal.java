@@ -20,6 +20,17 @@ public class M_0105_ConstructBinaryTreeFromPreorderAndInorderTraversal {
         treeNode1.prettyPrint();
     }
 
+    /*
+         1
+        / \
+       /   \
+      2     3
+     /       \
+    4         7
+
+   前序： 1,2,4,3,7,
+   中序： 4,2,1,3,7,
+     */
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         if (preorder.length==0) {
             return null;

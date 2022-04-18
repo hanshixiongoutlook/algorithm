@@ -19,6 +19,18 @@ public class M_0889_ConstructBinaryTreeFromPreorderAndPostorderTraversal {
         TreeNode treeNode1 = constructFromPrePost(new int[]{1,2,4,5,3,6,7}, new int[]{4,5,2,6,7,3,1});
         treeNode1.prettyPrint();
     }
+    /*
+     1
+    / \
+   /   \
+  2     3
+ / \   / \
+4   5 6   7
+
+前序：1,2,4,5,3,6,7,
+后序：4,5,2,6,7,3,1,
+
+     */
     public TreeNode constructFromPrePost(int[] preorder, int[] postorder) {
         if (postorder.length==0) {
             return null;

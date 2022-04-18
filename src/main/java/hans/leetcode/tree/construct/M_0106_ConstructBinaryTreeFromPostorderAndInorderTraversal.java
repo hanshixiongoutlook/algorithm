@@ -21,7 +21,15 @@ public class M_0106_ConstructBinaryTreeFromPostorderAndInorderTraversal {
     }
 
     /*
+             3
+            / \
+           /   \
+          9    20
+               / \
+              15  7
 
+        后序：9,15,7,20,3,
+        中序：9,3,15,20,7,
      */
     public TreeNode buildTree(int[] inorder, int[] postorder) {
         if (postorder.length==0) {
